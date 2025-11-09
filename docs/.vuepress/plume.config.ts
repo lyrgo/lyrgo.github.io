@@ -49,16 +49,16 @@ export default defineThemeConfig({
    * @see https://theme-plume.vuejs.press/config/basic/#profile
    */
   profile: {
-    avatar: 'https://theme-plume.vuejs.press/plume.png',
+      avatar: 'https://cdn.luogu.com.cn/upload/usericon/1085280.png',
     name: 'lyrgo',
     description: 'lyr&#x27;s blog',
-    // circle: true,
+    circle: true,
     // location: '',
     // organization: '',
   },
 
-//   navbar = true,
-//   collections,
+  navbar,
+  collections,
 
   /**
    * 公告板

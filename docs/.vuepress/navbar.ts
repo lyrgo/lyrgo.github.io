@@ -7,10 +7,26 @@
 import { defineNavbarConfig } from 'vuepress-theme-plume'
 
 export default defineNavbarConfig([
-    { text: '首页', link: '/' },
-    { text: '博客', link: '/blog/' },
-    { text: '算法', link: '/algorithm/' },
-    { text: '文化课' , link: '/study/'},
-    { text: '标签', link: '/blog/tags/' },
-    { text: '归档', link: '/blog/archives/' },
+    {
+        text: '算法',
+        link: '/algorithm/start/intro.md',
+        icon: 'icon-park-outline:guide-board',
+        activeMatch: '^/guide/',
+    },
+    {
+        text: '博客',
+        link: '/blog/'
+    },
+    {
+        text: '文化课',
+        link: '/study/'
+    },
+    {
+        text: '标签',
+        link: '/blog/tags/'
+    },
+    {
+        text: '归档',
+        link: '/blog/archives/'
+    },
 ])

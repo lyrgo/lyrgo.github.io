@@ -20,7 +20,7 @@ config:
           text: 算法
           link: /algorithm/
         -
-          theme: brand
+          theme: alt
           text: 文化课
           link: /study/
         # -

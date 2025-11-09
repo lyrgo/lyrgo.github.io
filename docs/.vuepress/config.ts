@@ -29,7 +29,7 @@ export default defineUserConfig({
 
   theme: plumeTheme({
     /* 添加您的部署域名, 有助于 SEO, 生成 sitemap */
-    // hostname: 'https://your_site_url',
+    hostname: 'https://lyrgo.github.io',
 
     /* 文档仓库配置，用于 editLink */
     // docsRepo: '',
@@ -52,11 +52,11 @@ export default defineUserConfig({
      * 为 markdown 文件自动添加 frontmatter 配置
      * @see https://theme-plume.vuejs.press/config/basic/#autofrontmatter
      */
-    // autoFrontmatter: {
-    //   permalink: true,  // 是否生成永久链接
-    //   createTime: true, // 是否生成创建时间
-    //   title: true,      // 是否生成标题
-    // },
+    autoFrontmatter: {
+      permalink: true,  // 是否生成永久链接
+      createTime: true, // 是否生成创建时间
+      title: true,      // 是否生成标题
+    },
 
     /* 本地搜索, 默认启用 */
     search: { provider: 'local' },
@@ -77,14 +77,14 @@ export default defineUserConfig({
      * Shiki 代码高亮
      * @see https://theme-plume.vuejs.press/config/plugins/code-highlight/
      */
-    // codeHighlighter: {
+    codeHighlighter: {
     //   twoslash: true, // 启用 twoslash
     //   whitespace: true, // 启用 空格/Tab 高亮
-    //   lineNumbers: true, // 启用行号
-    // },
+      lineNumbers: true, // 启用行号
+    },
 
     /* 文章字数统计、阅读时间，设置为 false 则禁用 */
-    // readingTime: true,
+    //   readingTime: false,
 
     /**
      * markdown
@@ -164,15 +164,5 @@ export default defineUserConfig({
      * @see https://theme-plume.vuejs.press/guide/features/encryption/
      */
       // encrypt: {},
-
-    /**
-     * 指南
-     * @see https://theme-plume.vuejs.press/guide/collection/doc/
-     */
-    collections: [
-        { type: 'post', dir: 'blog', title: '博客' },
-        { type: 'doc', dir: 'algorithm', title: '算法' },
-        { type: 'post', dir: 'study', title: '文化课' }
-    ]
   }),
 })
