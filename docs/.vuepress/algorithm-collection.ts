@@ -22,8 +22,17 @@ export const algorithm: ThemeCollectionItem = defineCollection({
             icon: 'carbon:idea',
             prefix: 'start',
             items: [
-                'intro.md',
+                'intro',
             ],
+        },
+        {
+            text: '数据结构',
+            collapsed: true,
+            icon: 'carbon:db2-database',
+            prefix: 'dataStruct',
+            items: [
+                'Treap'
+            ]
         }
     ],
 })
