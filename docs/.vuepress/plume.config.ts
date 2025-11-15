@@ -20,10 +20,14 @@ import collections from './collections'
 export default defineThemeConfig({
   logo: 'https://theme-plume.vuejs.press/plume.png',
 
-  appearance: false,  // 配置 深色模式
+//   appearance: 'force-dark',  // 配置 深色模式
 
   social: [
-    { icon: 'github', link: '/' },
+      { icon: 'github', link: 'https://github.com/lyrgo' },
+    //   {
+    //       icon: { svg: '<svg></svg>', name: 'luogu' },
+    //       link: 'https://www.luogu.com.cn/user/1085280'
+    //   },
   ],
   navbarSocialInclude: ['github'], // 允许显示在导航栏的 social 社交链接
   aside: true, // 页内侧边栏， 默认显示在右侧

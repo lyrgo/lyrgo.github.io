@@ -15,18 +15,22 @@ export default defineNavbarConfig([
     },
     {
         text: '博客',
-        link: '/blog/'
+        icon: 'icon-park-outline:align-text-left-one',
+        link: '/blog/',
     },
     {
         text: '文化课',
-        link: '/study/'
+        icon: 'icon-park-outline:bachelor-cap-one',
+        link: '/study/',
     },
     {
         text: '标签',
-        link: '/blog/tags/'
+        icon: 'icon-park-outline:tag-one',
+        link: '/blog/tags/',
     },
     {
         text: '归档',
-        link: '/blog/archives/'
+        icon: 'icon-park-outline:book-one',
+        link: '/blog/archives/',
     },
 ])
