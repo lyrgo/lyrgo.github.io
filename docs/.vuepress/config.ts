@@ -32,15 +32,15 @@ export default defineUserConfig({
     hostname: 'https://lyrgo.github.io',
 
     /* 文档仓库配置，用于 editLink */
-    // docsRepo: '',
-    // docsDir: 'docs',
-    // docsBranch: '',
+    docsRepo: '',
+    docsDir: 'docs',
+    docsBranch: '',
 
     /* 页内信息 */
-    // editLink: true,
-    // lastUpdated: true,
+    editLink: true,
+    // lastUpdated: ,
     // contributors: true,
-    // changelog: false,
+    changelog: false,
 
     /**
      * 编译缓存，加快编译速度
@@ -90,7 +90,7 @@ export default defineUserConfig({
      * markdown
      * @see https://theme-plume.vuejs.press/config/markdown/
      */
-    // markdown: {
+    markdown: {
     //   abbr: true,         // 启用 abbr 语法  *[label]: content
     //   annotation: true,   // 启用 annotation 语法  [+label]: content
     //   pdf: true,          // 启用 PDF 嵌入 @[pdf](/xxx.pdf)
@@ -114,9 +114,9 @@ export default defineUserConfig({
     //     kotlin: true,     // ::: kotlin-repl
     //     python: true,     // ::: python-repl
     //   },
-    //   math: {             // 启用数学公式
-    //     type: 'katex',
-    //   },
+      math: {             // 启用数学公式
+        type: 'katex',
+      },
     //   chartjs: true,      // 启用 chart.js
     //   echarts: true,      // 启用 ECharts
     //   mermaid: true,      // 启用 mermaid
@@ -129,7 +129,7 @@ export default defineUserConfig({
     //   },
     //   include: true,      // 在 Markdown 文件中导入其他 markdown 文件内容
     //   imageSize: 'local', // 启用 自动填充 图片宽高属性，避免页面抖动
-    // },
+    },
 
     /**
      * 水印
@@ -141,17 +141,17 @@ export default defineUserConfig({
      * 评论 comments
      * @see https://theme-plume.vuejs.press/guide/features/comments/
      */
-    // comment: {
-    //   provider: '', // "Artalk" | "Giscus" | "Twikoo" | "Waline"
-    //   comment: true,
-    //   repo: '',
-    //   repoId: '',
-    //   category: '',
-    //   categoryId: '',
-    //   mapping: 'pathname',
-    //   reactionsEnabled: true,
-    //   inputPosition: 'top',
-    // },
+    comment: {
+        provider: 'Giscus', // "Artalk" | "Giscus" | "Twikoo" | "Waline"
+        comment: true,
+        repo: 'lyrgo/lyrgo.github.io',
+        repoId: 'R_kgDOQSFpNQ',
+        category: 'Announcements',
+        categoryId: 'DIC_kwDOQSFpNc4CxznM',
+        mapping: 'pathname',
+        reactionsEnabled: true,
+        inputPosition: 'top',
+    },
 
     /**
      * 资源链接替换
