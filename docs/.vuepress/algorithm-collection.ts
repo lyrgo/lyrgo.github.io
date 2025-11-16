@@ -31,8 +31,26 @@ export const algorithm: ThemeCollectionItem = defineCollection({
             icon: 'carbon:db2-database',
             prefix: 'dataStruct',
             items: [
-                'Treap'
-            ]
-        }
+                'Treap',
+            ],
+        },
+        {
+            text: '贪心',
+            collapsed: true,
+            icon: 'icon-park-outline:balance-two',
+            prefix: '贪心',
+            items: [
+                '证明方法',
+            ],
+        },
+        {
+            text: '数论',
+            collapsed: true,
+            icon: 'icon-park-outline:arithmetic-buttons',
+            prefix: 'math',
+            items: [
+                '绝对值不等式',
+            ],
+        },
     ],
 })
