@@ -32,7 +32,7 @@ export default defineUserConfig({
     hostname: 'https://lyrgo.github.io',
 
     /* 文档仓库配置，用于 editLink */
-    docsRepo: 'lyrgo.github.io',
+    docsRepo: 'lyrgo/lyrgo.github.io',
     docsDir: 'docs',
     // docsBranch: '',
 
