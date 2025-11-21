@@ -32,9 +32,9 @@ export default defineUserConfig({
     hostname: 'https://lyrgo.github.io',
 
     /* 文档仓库配置，用于 editLink */
-    docsRepo: '',
+    docsRepo: 'lyrgo.github.io',
     docsDir: 'docs',
-    docsBranch: '',
+    // docsBranch: '',
 
     /* 页内信息 */
     editLink: true,
@@ -101,7 +101,7 @@ export default defineUserConfig({
     //   artPlayer: true,    // 启用嵌入 artPlayer 本地视频 语法 @[artPlayer](url)
     //   audioReader: true,  // 启用嵌入音频朗读功能 语法 @[audioReader](url)
     //   icon: { provider: 'iconify' },        // 启用内置图标语法  ::icon-name::
-    //   table: true,        // 启用表格增强容器语法 ::: table
+      table: true,        // 启用表格增强容器语法 ::: table
     //   codepen: true,      // 启用嵌入 codepen 语法 @[codepen](user/slash)
     //   replit: true,       // 启用嵌入 replit 语法 @[replit](user/repl-name)
     //   codeSandbox: true,  // 启用嵌入 codeSandbox 语法 @[codeSandbox](id)
@@ -121,12 +121,12 @@ export default defineUserConfig({
     //   echarts: true,      // 启用 ECharts
     //   mermaid: true,      // 启用 mermaid
     //   flowchart: true,    // 启用 flowchart
-    //   image: {
-    //     figure: true,     // 启用 figure
-    //     lazyload: true,   // 启用图片懒加载
-    //     mark: true,       // 启用图片标记
-    //     size: true,       // 启用图片大小
-    //   },
+      image: {
+        figure: true,     // 启用 figure
+        lazyload: true,   // 启用图片懒加载
+        mark: true,       // 启用图片标记
+        size: true,       // 启用图片大小
+      },
     //   include: true,      // 在 Markdown 文件中导入其他 markdown 文件内容
     //   imageSize: 'local', // 启用 自动填充 图片宽高属性，避免页面抖动
     },
