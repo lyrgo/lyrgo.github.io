@@ -40,7 +40,14 @@ export default defineUserConfig({
     editLink: true,
     // lastUpdated: ,
     // contributors: true,
-    changelog: false,
+      // changelog: false,
+    changelog: {
+        maxCount: 10,
+        repoUrl: 'https://github.com/lyrgo/lyrgo.github.io',
+        commitUrlPattern: ':repo/commit/:hash',
+        issueUrlPattern: ':repo/issues/:issue',
+        tagUrlPattern: ':repo/releases/tag/:tag'
+    },
 
     /**
      * 编译缓存，加快编译速度
@@ -128,7 +135,7 @@ export default defineUserConfig({
         size: true,       // 启用图片大小
       },
     //   include: true,      // 在 Markdown 文件中导入其他 markdown 文件内容
-    //   imageSize: 'local', // 启用 自动填充 图片宽高属性，避免页面抖动
+      imageSize: 'local', // 启用 自动填充 图片宽高属性，避免页面抖动
     },
 
     /**
@@ -164,5 +171,11 @@ export default defineUserConfig({
      * @see https://theme-plume.vuejs.press/guide/features/encryption/
      */
       // encrypt: {},
+    
+    
+    plugins: {
+        git: process.env.NODE_ENV === 'production'
+        
+    }
   }),
 })
