@@ -20,7 +20,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
             text: '从这里开始',
             collapsed: false,
             icon: 'carbon:idea',
-            prefix: 'start',
+            prefix: '开始',
             items: [
                 'intro',
             ],
@@ -29,10 +29,19 @@ export const algorithm: ThemeCollectionItem = defineCollection({
             text: '数据结构',
             collapsed: true,
             icon: 'carbon:db2-database',
-            prefix: 'dataStruct',
+            prefix: '数据结构',
             items: [
                 'Treap',
             ],
+        },
+        {
+            text: '动态规划',
+            collapsed: true,
+            icon: 'icon-park-outline:bitcoin',
+            prefix: '动态规划',
+            items: [
+                '树形动态规划',
+            ]
         },
         {
             text: '贪心',
@@ -40,14 +49,14 @@ export const algorithm: ThemeCollectionItem = defineCollection({
             icon: 'icon-park-outline:balance-two',
             prefix: '贪心',
             items: [
-                '证明方法',
+                '贪心证明方法',
             ],
         },
         {
             text: '数论',
             collapsed: true,
             icon: 'icon-park-outline:arithmetic-buttons',
-            prefix: 'math',
+            prefix: '数论',
             items: [
                 '绝对值不等式',
             ],

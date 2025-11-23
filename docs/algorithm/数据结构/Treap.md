@@ -1,7 +1,7 @@
 ---
 title: Treap
 createTime: 2025/11/09 14:04:37
-permalink: /algorithm/6vin6qej/
+permalink: /algorithm/数据结构/6vin6qej/
 ---
 
 ## 简介
