@@ -66,7 +66,8 @@ export default defineUserConfig({
     },
 
     /* 本地搜索, 默认启用 */
-    search: { provider: 'local' },
+    // search: { provider: 'local' },
+    search: false,
 
     /**
      * Algolia DocSearch
@@ -74,10 +75,10 @@ export default defineUserConfig({
      * @see https://theme-plume.vuejs.press/config/plugins/search/#algolia-docsearch
      */
     // search: {
-    //   provider: 'algolia',
-    //   appId: '',
-    //   apiKey: '',
-    //   indices: [''],
+    //     provider: 'algolia',
+    //     appId: 'EB0YDZN93G',
+    //     apiKey: '665347370c7a151d763a0bc4227e9cab',
+    //     indices: ['Blog'],
     // },
 
     /**
@@ -174,8 +175,7 @@ export default defineUserConfig({
     
     
     plugins: {
-        git: process.env.NODE_ENV === 'production'
-        
+        git: process.env.NODE_ENV === 'production',
     }
   }),
 })
