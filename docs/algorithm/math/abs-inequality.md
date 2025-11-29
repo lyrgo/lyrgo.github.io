@@ -1,7 +1,7 @@
 ---
 title: 绝对值不等式
 createTime: 2025/11/16 17:27:46
-permalink: /algorithm/数论/in8si6r0/
+permalink: /algorithm/abs-inequality/
 ---
 
 ## 简介

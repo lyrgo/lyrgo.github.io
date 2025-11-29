@@ -1,7 +1,7 @@
 ---
 title: 树形动态规划
 createTime: 2025/11/23 11:12:23
-permalink: /algorithm/动态规划/tvt4cimn/
+permalink: /algorithm/tree-dp/
 ---
 
 ## 简介
