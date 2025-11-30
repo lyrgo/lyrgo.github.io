@@ -1,5 +1,5 @@
 ---
-title: 树形动态规划
+title: 树形 DP
 createTime: 2025/11/23 11:12:23
 permalink: /algorithm/tree-dp/
 ---
