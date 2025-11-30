@@ -89,8 +89,10 @@ $\sqrt{a^2+b^2}\geq r$
 $\cos\theta=\frac{a}{\sqrt{a^2+b^2} }$  
 $\sin\theta=\frac{b}{\sqrt{a^2+b^2} }$  
 
+通常用 $\tan\theta=\frac b a$ 确定 $\theta$
+
 ### 万能公式
-$\sin\alpha=\large\frac{2\tan\frac{\alpha}{2} }{\tan^2\frac{\alpha}{2}+1}$  
+$\sin\alpha=\large\frac{2\tan\frac{\alpha}{2} }{1+\tan^2\frac{\alpha}{2}}$  
 
 $\cos\alpha=\large\frac{1-\tan^2\frac{\alpha}{2} }{1+\tan^2\frac{\alpha}{2} }$  
 
