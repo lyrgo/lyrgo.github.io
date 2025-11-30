@@ -41,6 +41,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
             prefix: 'DP',
             items: [
                 'tree-dp',
+                'number-dp',
             ]
         },
         {
