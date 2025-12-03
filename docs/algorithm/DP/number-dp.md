@@ -37,3 +37,30 @@ permalink: /algorithm/number-dp/
 同上，由于不能有前导 $0$，所以在 $a_{n-1}$ 上只能填 $1$ 到 $x_{n-1}$，其他分支可以填 $0$。  
 令 $f_{i,j}$ 表示最高位为 $j$，共有 $i$ 位的 Windy 数个数，根据第二位划分可以得到： $f_{i,j}=\sum\limits _{k=0}^9 f_{i-1,k}(\left|j-k\right|\geq 2)$，预处理即可。  
 特别的，对于不足 $n$ 位的数要特判。  
+
+## _Template_
+``` cpp
+void init() {
+    /* 预处理 f */
+}
+
+int calc(int n) {
+    if(!n) return 0;
+
+    vector<int> nums;
+    while(n) nums.push_back(n%10) , n/=10;
+
+    int res = 0 , last = 0;
+    for(int i = nums.size()-1 ; i >= 0 ; i --) {
+        int x = nums[i];
+        for(int j = 0 ; j < x ; j ++) {
+            /* 转移 */
+        }
+
+        if(/* x 不满足特殊条件 */) break;
+        last = /* 特定数值 */;
+        if(!i) res ++;
+    }
+    return res;
+}
+```
