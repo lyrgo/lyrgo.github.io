@@ -40,14 +40,14 @@ export default defineUserConfig({
         editLink: true,
         // lastUpdated: ,
         // contributors: true,
-        // changelog: false,
-        changelog: {
-            maxCount: 10,
-            repoUrl: 'https://github.com/lyrgo/lyrgo.github.io',
-            commitUrlPattern: ':repo/commit/:hash',
-            issueUrlPattern: ':repo/issues/:issue',
-            tagUrlPattern: ':repo/releases/tag/:tag'
-        },
+        changelog: false,
+        // changelog: {
+        //     maxCount: 10,
+        //     repoUrl: 'https://github.com/lyrgo/lyrgo.github.io',
+        //     commitUrlPattern: ':repo/commit/:hash',
+        //     issueUrlPattern: ':repo/issues/:issue',
+        //     tagUrlPattern: ':repo/releases/tag/:tag'
+        // },
 
         /**
          * 编译缓存，加快编译速度
@@ -163,6 +163,7 @@ export default defineUserConfig({
          */
         // encrypt: {},
 
+        footer: false,
 
         plugins: {
             git: process.env.NODE_ENV === 'production',

@@ -9,9 +9,8 @@ import { defineNavbarConfig } from 'vuepress-theme-plume'
 export default defineNavbarConfig([
     {
         text: '算法',
-        link: '/algorithm/intro/',
+        link: '/algorithm/start/intro/',
         icon: 'icon-park-outline:guide-board',
-        activeMatch: '^/guide/',
     },
     {
         text: '博客',

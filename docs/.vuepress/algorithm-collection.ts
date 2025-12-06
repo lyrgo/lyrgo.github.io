@@ -25,34 +25,33 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                 'intro',
             ],
         },
-        {
-            text: '数据结构',
-            collapsed: true,
-            icon: 'carbon:db2-database',
-            prefix: 'data-structures',
-            items: [
-                'treap',
-            ],
-        },
+        // {
+        //     text: '数据结构',
+        //     collapsed: true,
+        //     icon: 'carbon:db2-database',
+        //     prefix: 'ds',
+        //     items: [
+        //     ],
+        // },
         {
             text: '动态规划',
             collapsed: true,
             icon: 'icon-park-outline:bitcoin',
-            prefix: 'DP',
+            prefix: 'dp',
             items: [
-                'tree-dp',
-                'number-dp',
+                'tree',
+                'number',
             ]
         },
-        {
-            text: '贪心',
-            collapsed: true,
-            icon: 'icon-park-outline:balance-two',
-            prefix: 'greedy',
-            items: [
-                'greedy-proof',
-            ],
-        },
+        // {
+        //     text: '贪心',
+        //     collapsed: true,
+        //     icon: 'icon-park-outline:balance-two',
+        //     prefix: 'greedy',
+        //     items: [
+        //         'greedy-proof',
+        //     ],
+        // },
         {
             text: '数论',
             collapsed: true,

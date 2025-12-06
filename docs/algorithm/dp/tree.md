@@ -1,7 +1,7 @@
 ---
 title: 树形 DP
 createTime: 2025/11/23 11:12:23
-permalink: /algorithm/tree-dp/
+permalink: /algorithm/dp/tree/
 ---
 
 ## _Intro_

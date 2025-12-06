@@ -1,7 +1,5 @@
 ---
-title: intro
-createTime: 2025/11/09 14:08:30
-permalink: /algorithm/intro/
+title: 万物起源
+createTime: 2025/12/06 20:23:53
+permalink: /algorithm/start/intro/
 ---
-
-**千里之行，始于足下**

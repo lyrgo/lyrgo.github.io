@@ -1,7 +1,7 @@
 ---
 title: 数位 DP
 createTime: 2025/11/30 12:10:19
-permalink: /algorithm/number-dp/
+permalink: /algorithm/dp/number/
 ---
 
 ## _Intro_
