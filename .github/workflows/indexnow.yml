@@ -1,0 +1,20 @@
+name: "IndexNow"
+
+on:
+    push:
+        branches:
+            - main
+    workflow_dispatch:
+
+jobs:
+  check-and-submit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: submit-to-bing
+        uses: bojieyang/indexnow-action@v2
+        with:
+          sitemap-location: "https://lyrgo.github.io/sitemap.xml"
+          endpoint: "www.bing.com"
+          limit: 10
+          key: ${{ secrets.INDEXNOW_KEY }}
+          key-location: ${{ secrets.INDEXNOW_KEY_LOCATION }}
