@@ -3,6 +3,7 @@ name: "IndexNow"
 on:
     workflow_run:
         workflows: [pages-build-deployment]
+        types: [completed]
     workflow_dispatch:
 
 jobs:
