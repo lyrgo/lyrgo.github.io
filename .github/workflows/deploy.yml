@@ -34,7 +34,9 @@ jobs:
       # 安装依赖
       # Install dependencies
       - name: Install Dependencies
-        run: pnpm install --frozen-lockfile
+        run: |
+            pnpm install --frozen-lockfile
+            echo "${{ secrets.INDEXNOW_KEY }}" > docs/.vuepress/dist/${{ secrets.INDEXNOW_KEY }}.txt
 
 
       # 运行构建脚本
