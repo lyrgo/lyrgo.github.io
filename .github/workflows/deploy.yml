@@ -36,13 +36,14 @@ jobs:
       - name: Install Dependencies
         run: |
             pnpm install --frozen-lockfile
-            echo "${{ secrets.INDEXNOW_KEY }}" > docs/.vuepress/dist/${{ secrets.INDEXNOW_KEY }}.txt
 
 
       # 运行构建脚本
       # Run the build script
       - name: Build VuePress site
-        run: pnpm run docs:build
+        run: |
+            pnpm run docs:build
+            echo "${{ secrets.INDEXNOW_KEY }}" > docs/.vuepress/dist/${{ secrets.INDEXNOW_KEY }}.txt
 
 
       # 查看 workflow 的文档来获取更多信息
