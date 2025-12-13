@@ -41,6 +41,14 @@ export const algorithm: ThemeCollectionItem = defineCollection({
             items: [
                 'tree',
                 'number',
+                {
+                    text: 'DP 优化',
+                    collapsed: true,
+                    prefix: 'opt',
+                    items: [
+                        'monotonous-queue',
+                    ],
+                },
             ]
         },
         // {
