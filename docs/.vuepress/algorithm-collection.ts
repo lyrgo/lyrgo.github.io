@@ -47,6 +47,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                     prefix: 'opt',
                     items: [
                         'monotonous-queue',
+                        'slope',
                     ],
                 },
             ]
