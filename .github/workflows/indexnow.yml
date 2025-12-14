@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: submit-to-bing
-        uses: bojieyang/indexnow-action@v2.1
+        uses: bojieyang/indexnow-action@v2.1.0
         with:
           sitemap-location: "https://lyrgo.github.io/sitemap.xml"
           endpoint: "www.bing.com"
@@ -19,7 +19,7 @@ jobs:
           key: ${{ secrets.INDEXNOW_KEY }}
           key-location: ${{ secrets.INDEXNOW_KEY_LOCATION }}
       - name: submit-to-indexnow
-        uses: bojieyang/indexnow-action@v2.1
+        uses: bojieyang/indexnow-action@v2.1.0
         with:
           sitemap-location: "https://lyrgo.github.io/sitemap.xml"
           endpoint: "api.indexnow.org"
