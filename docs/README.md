@@ -18,7 +18,7 @@ config:
         -
           theme: brand
           text: 算法
-          link: /algorithm/
+          link: /algorithm/start/intro/
         -
           theme: alt
           text: 文化课
