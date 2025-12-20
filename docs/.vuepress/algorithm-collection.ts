@@ -25,14 +25,15 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                 'intro',
             ],
         },
-        // {
-        //     text: '数据结构',
-        //     collapsed: true,
-        //     icon: 'carbon:db2-database',
-        //     prefix: 'ds',
-        //     items: [
-        //     ],
-        // },
+        {
+            text: '数据结构',
+            collapsed: true,
+            icon: 'carbon:db2-database',
+            prefix: 'ds',
+            items: [
+                'fenwick',
+            ],
+        },
         {
             text: '动态规划',
             collapsed: true,
