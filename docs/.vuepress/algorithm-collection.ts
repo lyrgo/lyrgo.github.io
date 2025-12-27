@@ -79,5 +79,14 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                 'abs-inequality',
             ],
         },
+        {
+            text: '计算几何',
+            collapsed: true,
+            icon: 'icon-park-outline:chart-line-area',
+            prefix: 'geometry',
+            items: [
+                'scanning',
+            ]
+        }
     ],
 })
