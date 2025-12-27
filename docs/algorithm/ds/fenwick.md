@@ -48,8 +48,3 @@ $\cdots$
 $x$.  $d_1+d_2+\cdots+d_x$  
 
 还是不好求，并且我们需要将其转换为前缀和的形式，考虑将空缺部分补齐，会发现整个矩阵就是 $(x+1)\times\sum _{i=1}^x d_i$，需要减去的是 $d_1+2d_2+\cdots+xd_x$，也就是 $\sum _{i=1}^x id_i$，这样就可以用两个树状数组维护了。  
-
-<GitHubTip type="caution" title="使用 TypeScript 的组件">
-这是一个使用 TypeScript 编写的自定义组件示例。
-支持 **Markdown** 内容。
-</GitHubTip>
