@@ -32,6 +32,14 @@ export const algorithm: ThemeCollectionItem = defineCollection({
             prefix: 'ds',
             items: [
                 'fenwick',
+                {
+                    text: '线段树',
+                    collapsed: true,
+                    prefix: 'seg',
+                    items: [
+                        'basic',
+                    ]
+                }
             ],
         },
         {
