@@ -39,6 +39,15 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                     items: [
                         'basic',
                     ]
+                },
+                {
+                    text: '可持久化数据结构',
+                    collapsed: true,
+                    prefix: 'persistent',
+                    items: [
+                        'trie',
+                        'seg',
+                    ],
                 }
             ],
         },
