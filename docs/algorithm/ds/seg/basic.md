@@ -11,6 +11,7 @@ permalink: /algorithm/seg/basic/
 
 ## _Examples_
 ### Acwing 1277. 维护序列 {#acwing-1277}
+[题目传送门](https://www.acwing.com/problem/content/1279/)  
 很明显，我们需要在线段树中维护 `sum`，`add`，`mul` 三个值，其中后两个为懒标记。  
 这个时候就需要考虑对于答案的表示是**先加后乘**还是**先乘后加**，即将答案表示为 `(sum+add)*mul` 还是 `sum*mul+add`。  
 对于第一种而言，如果此时操作为区间加，则会导致无法正确向下传递信息，所以用第二种。  
