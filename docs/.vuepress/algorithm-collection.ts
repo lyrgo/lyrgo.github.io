@@ -48,6 +48,14 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                         'trie',
                         'seg',
                     ],
+                },
+                {
+                    text: '二叉搜索树 & 平衡树',
+                    collapsed: true,
+                    prefix: 'balanced',
+                    items: [
+                        'bst',
+                    ]
                 }
             ],
         },
