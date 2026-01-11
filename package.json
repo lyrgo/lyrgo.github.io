@@ -19,7 +19,7 @@
     "typescript": "^5.9.3",
     "vue": "^3.5.26",
     "vuepress": "2.0.0-rc.26",
-    "vuepress-theme-plume": "1.0.0-rc.184"
+    "vuepress-theme-plume": "1.0.0-rc.185"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
@@ -31,7 +31,7 @@
     "node": "^20.6.0 || >=22.0.0"
   },
   "dependencies": {
-    "@iconify/json": "^2.2.424",
+    "@iconify/json": "^2.2.427",
     "gsap": "^3.14.2"
   }
 }
