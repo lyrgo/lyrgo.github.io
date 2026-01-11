@@ -55,6 +55,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                     prefix: 'balanced',
                     items: [
                         'bst',
+                        'treap',
                     ]
                 }
             ],
