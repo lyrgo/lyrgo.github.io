@@ -80,6 +80,15 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                 },
             ]
         },
+        {
+            text: '字符串',
+            collapsed: true,
+            icon: 'icon-park-outline:text',
+            prefix: 'string',
+            items: [
+                'kmp',
+            ]
+        },
         // {
         //     text: '贪心',
         //     collapsed: true,
