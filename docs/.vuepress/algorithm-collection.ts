@@ -62,6 +62,22 @@ export const algorithm: ThemeCollectionItem = defineCollection({
             ],
         },
         {
+            text: '图论',
+            collapsed: true,
+            icon: 'icon-park-outline:map-draw',
+            prefix: 'graph',
+            items: [
+                {
+                    text: '最短路问题',
+                    collapsed: true,
+                    prefix: 'shortest-path',
+                    items: [
+                        'floyd',
+                    ]
+                }
+            ]
+        },
+        {
             text: '动态规划',
             collapsed: true,
             icon: 'icon-park-outline:bitcoin',
