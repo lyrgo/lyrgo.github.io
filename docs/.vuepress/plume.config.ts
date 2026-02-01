@@ -13,7 +13,6 @@
 import { defineThemeConfig } from 'vuepress-theme-plume'
 import navbar from './navbar'
 import collections from './collections'
-import { algorithm } from './algorithm-collection'
 
 /**
  * @see https://theme-plume.vuejs.press/config/basic/
