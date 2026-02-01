@@ -74,7 +74,8 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                     items: [
                         'floyd',
                     ]
-                }
+                },
+                'min-cycle',
             ]
         },
         {

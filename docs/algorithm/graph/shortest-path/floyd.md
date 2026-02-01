@@ -35,3 +35,6 @@ Floyd 是一个最短路算法，本质是 DP。
 [题目传送门](https://www.acwing.com/problem/content/345/)  
 Floyd 可以在 $O(n^3)$ 内完成传递闭包，根据传递闭包的思想，我们令 $d_{i,j}=0$ 表示 $i$ 和 $j$ 关系未知；$d_{i,j}=1$ 表示 $i>j$。  
 容易发现，出现矛盾的只能是 $d_{i,i}=1$ 时，进行判断即可。  
+
+## 求最小环
+[求最小环/Floyd](../min-cycle.md#floyd){.readmore}  
