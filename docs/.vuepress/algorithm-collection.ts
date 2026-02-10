@@ -73,6 +73,8 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                     prefix: 'shortest-path',
                     items: [
                         'floyd',
+                        'bellman-ford',
+                        'diff-constraints',
                     ]
                 },
                 'min-cycle',
