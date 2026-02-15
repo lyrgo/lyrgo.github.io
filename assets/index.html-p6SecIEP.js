@@ -1,0 +1,1 @@
+import{_ as t,c as e,o as a}from"./app-_O7WQDmY.js";const r={};function s(n,c){return a(),e("div")}const l=t(r,[["render",s]]),i=JSON.parse('{"path":"/study/tags/","title":"标签","lang":"zh-CN","frontmatter":{"lang":"zh-CN","title":"标签","draft":true},"git":{},"filePathRelative":null,"headers":[],"type":"posts-tags"}');export{l as comp,i as data};
