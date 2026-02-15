@@ -19,3 +19,19 @@ permalink: /algorithm/graph/shortest-path/diff-constraints/
 ~~处理完上述问题，还有一个问题~~  
 如果图中存在负环，证明什么？  
 这种情况下，令环上的一个点为 $x_1$，剩下一直到 $x_i$，编号小的点向编号大的点连边的边权为 $w_1\sim w_i$，我们一定可以推出 $x_1\leq x_1+\sum_{w_1}^{w_i}$，而 $\sum_{w_1}^{w_i}<0$，所以三角形不等式不成立，也就是**图中存在负环时表示不等式组无解**。  
+
+## 例题
+### Acwing 1169. 糖果 {#acwing-1169}
+[题目传送门](https://www.acwing.com/problem/content/1171/)  
+非常板子的题目，跟上面讲的一样。
+
+### Acwing 362. 区间 {#acwing-362}
+[题目传送门](https://www.acwing.com/problem/content/364/)  
+题目的范围是 $1\sim 50000$，但我们可以统一加一个 $1$，变成 $1\sim 50001$。  
+然后我们需要进行一个转换：设 $s_i$ 表示从 $1\sim i$ 中选中的数的个数。  
+容易发现，我们有以下几个约束条件：
+*   $s_i\geq s_{i-1}$
+*   $s_{i-1}\geq s_i-1$
+*   对于一个约束条件 $[a,b]$ 和 $c$，$s_b\geq s_{a-1} + c$
+
+要求最小值，所以跑最长路即可。  
