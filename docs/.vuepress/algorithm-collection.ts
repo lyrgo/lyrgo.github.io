@@ -38,6 +38,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                     prefix: 'seg',
                     items: [
                         'basic',
+                        'weight',
                     ]
                 },
                 {
