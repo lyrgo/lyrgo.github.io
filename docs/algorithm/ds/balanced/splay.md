@@ -43,3 +43,18 @@ void rotate(int x) {
 根据子节点和父节点及父节点的父节点形成的图形进行讨论：  
 ![旋转的分类讨论](/algorithm/ds/balanced/splay/rotate.png)
 另外还有两种与之相对称的，旋转方式与其相同，这里不做赘述。  
+经过 splay 长期的发展，现在有一种比较简便的写法如下：
+``` cpp
+void splay(int x , int k) {
+    while(tr[x].p != k) {
+        int y = tr[x].p , z = tr[y].p;
+        if(z != k) {
+            if((tr[z].s[1] == y) ^ (tr[y].s[1] == x)) rotate(x);
+            else rotate(y);
+        }
+        rotate(x);
+    }
+    if(!k) root = x;
+}
+```
+简单来说，就是根据弯折情况决定转 x 还是转 y，然后执行一次转 x。
