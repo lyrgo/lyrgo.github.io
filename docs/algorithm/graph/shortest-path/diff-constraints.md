@@ -22,11 +22,13 @@ permalink: /algorithm/graph/shortest-path/diff-constraints/
 
 ## 例题
 ### Acwing 1169. 糖果 {#acwing-1169}
-[题目传送门](https://www.acwing.com/problem/content/1171/)  
+<LinkCard title="Acwing 1169. 糖果" href="https://www.acwing.com/problem/content/1171/" >
 非常板子的题目，跟上面讲的一样。
+</LinkCard>
 
 ### Acwing 362. 区间 {#acwing-362}
-[题目传送门](https://www.acwing.com/problem/content/364/)  
+<LinkCard title="Acwing 362. 区间" href="https://www.acwing.com/problem/content/364/" >
+
 题目的范围是 $1\sim 50000$，但我们可以统一加一个 $1$，变成 $1\sim 50001$。  
 然后我们需要进行一个转换：设 $s_i$ 表示从 $1\sim i$ 中选中的数的个数。  
 容易发现，我们有以下几个约束条件：
@@ -35,3 +37,15 @@ permalink: /algorithm/graph/shortest-path/diff-constraints/
 *   对于一个约束条件 $[a,b]$ 和 $c$，$s_b\geq s_{a-1} + c$
 
 要求最小值，所以跑最长路即可。  
+
+</LinkCard>
+
+### Acwing 1170. 排队布局 {#acwing-1170}
+<LinkCard title="Acwing 1170. 排队布局" href="https://www.acwing.com/problem/content/1172/" >
+
+读完题目，会发现我们还需要判断 $1$ 和 $n$ 的距离能否无限长，怎么办呢？  
+如果 $1$ 到 $n$ 的距离不是无限长，那么一定存在 $t$ 使得 $dis_n\leq dis_1+t$，如果距离是无限长的，也就是说 $\nexists t$ 满足上述条件（也可以理解为不存在这条路径）。  
+我们先将相对距离转换一下，令 $dis_1=0$，则 $dis_n$ 就是它们之间的距离。  
+所以我们只需要规定 $dis_1=0$，从 $1$ 开始跑最短路，看看 $dis_n$ 是不是 $+\infty$ 即可。  
+
+</LinkCard>
