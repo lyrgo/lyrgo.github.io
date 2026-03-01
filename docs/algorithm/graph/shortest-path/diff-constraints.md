@@ -49,3 +49,19 @@ permalink: /algorithm/graph/shortest-path/diff-constraints/
 所以我们只需要规定 $dis_1=0$，从 $1$ 开始跑最短路，看看 $dis_n$ 是不是 $+\infty$ 即可。  
 
 </LinkCard>
+
+### Acwing 393. 雇佣收银员 {#acwing-393}
+<LinkCard title="Acwing 393. 雇佣收银员" href="https://www.acwing.com/problem/content/395/" >
+
+与不等式有关，所以优先考虑不等式，令 $x_i$ 表示在时刻 $i$ 选择的人数，可以列出如下几个不等式：
+1.  $0\leq x_i\leq num_i$
+2.  $x_{i-7}+x_{i-6}+\cdots+x_i\geq r_i$
+
+很明显，第二种并不符合差分约束的形式，考虑使用前缀和，令 $s_i=\sum x_i$，可以写成这样：  
+1.  $0\leq s_i-s_{i-1}\leq num_i$
+2.  当 $i\geq 8$ 时，$s_i-s_{i-8}\geq r_i$
+3.  当 $1\leq i\leq 7$ 时，$s_i+s_{24}-s_{i+16}\geq r_i$
+
+好是好了，但是第三个咋办？那个 $s_{24}$ 没法处理啊！所以我们可以枚举 $s_{24}$，将其直接赋值来进行更新。
+
+</LinkCard>
