@@ -22,14 +22,4 @@ export default defineNavbarConfig([
         icon: 'icon-park-outline:bachelor-cap-one',
         link: '/study/',
     },
-    {
-        text: '标签',
-        icon: 'icon-park-outline:tag-one',
-        link: '/blog/tags/',
-    },
-    {
-        text: '归档',
-        icon: 'icon-park-outline:book-one',
-        link: '/blog/archives/',
-    },
 ])
