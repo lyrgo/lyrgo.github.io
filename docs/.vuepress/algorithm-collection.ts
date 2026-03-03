@@ -69,6 +69,14 @@ export const algorithm: ThemeCollectionItem = defineCollection({
             prefix: 'graph',
             items: [
                 {
+                    text: '树上问题',
+                    collapsed: true,
+                    prefix: 'tree',
+                    items: [
+                        'lca',
+                    ]
+                },
+                {
                     text: '最短路问题',
                     collapsed: true,
                     prefix: 'shortest-path',
