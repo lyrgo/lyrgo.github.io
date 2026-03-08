@@ -86,6 +86,14 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                         'diff-constraints',
                     ]
                 },
+                {
+                    text: '生成树问题',
+                    collapsed: true,
+                    prefix: 'spanning-tree',
+                    items: [
+                        'mst',
+                    ]
+                },
                 'min-cycle',
             ]
         },
