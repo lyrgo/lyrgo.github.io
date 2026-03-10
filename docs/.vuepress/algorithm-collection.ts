@@ -68,6 +68,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
             icon: 'icon-park-outline:map-draw',
             prefix: 'graph',
             items: [
+                'concept',
                 {
                     text: '树上问题',
                     collapsed: true,
@@ -93,6 +94,14 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                     prefix: 'spanning-tree',
                     items: [
                         'mst',
+                    ]
+                },
+                {
+                    text: '连通性相关',
+                    collapsed: true,
+                    prefix: 'connectivity',
+                    items: [
+                        'scc',
                     ]
                 },
                 'min-cycle',
