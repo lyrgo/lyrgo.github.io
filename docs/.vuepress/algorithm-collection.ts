@@ -74,6 +74,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                     prefix: 'tree',
                     items: [
                         'lca',
+                        'hld',
                     ]
                 },
                 {
