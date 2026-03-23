@@ -36,3 +36,12 @@ permalink: /algorithm/graph/connectivity/scc/
 第一问很好解决，对于第二问，我们考虑将 DAG 的每个终点（出度为 $0$ 的点）和每个起点（入度为 $0$ 的点）一一配对，容易发现，答案就是终点与起点个数最大值。  
 
 </LinkCard>
+
+### Acwing 1175. 最大半连通子图{#acwing-1175}
+<LinkCard title="Acwing 1175. 最大半连通子图" href="https://www.acwing.com/problem/content/1177/">
+
+简单理解一下题意，会发现在同一个 SCC 中的点一定是半联通的，而将原图进行缩点以后最大半连通子图则是新的 DAG 中最长的链。  
+方案数如何统计？设 $f_i$ 表示到当前点 $i$ 的经过图大小和，$g_i$ 表示使 $i$ 取到最大值的方案数。  
+设 $j$ 为 $i$ 在 DAG 中的一个前驱，若 $f_j+s_i>f_i$，令 $f_i=f_j+s_i$，$g_i=g_j$；若 $f_j+s_i=f_i$，令 $g_i=g_i+g_j$。  
+
+</LinkCard>
