@@ -45,3 +45,15 @@ permalink: /algorithm/graph/connectivity/scc/
 设 $j$ 为 $i$ 在 DAG 中的一个前驱，若 $f_j+s_i>f_i$，令 $f_i=f_j+s_i$，$g_i=g_j$；若 $f_j+s_i=f_i$，令 $g_i=g_i+g_j$。  
 
 </LinkCard>
+
+### Acwing 368. 银河{#acwing-368}
+<LinkCard title="Acwing 368. 银河" href="https://www.acwing.com/problem/content/description/370/">
+
+第一眼，是差分约束模板题，但是数据范围比较大，SPFA 容易被卡，有什么办法呢？  
+可以用强连通分量求，具体过程如下：  
+1.  做一遍 Tarjan，进行缩点，建出 DAG。
+2.  问题转换为在 DAG 上求最长路，按照 SCC 的逆顺序跑一边递推即可。
+
+为什么是对的？由于边权非负，并且是要找有无正环，这个时候只要一个环里面有一个 $>0$ 的边，就无解，然后进行递推即可。  
+
+</LinkCard>
