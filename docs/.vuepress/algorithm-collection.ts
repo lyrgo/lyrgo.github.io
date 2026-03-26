@@ -102,6 +102,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                     prefix: 'connectivity',
                     items: [
                         'scc',
+                        'dcc',
                     ]
                 },
                 'min-cycle',
