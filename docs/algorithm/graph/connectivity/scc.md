@@ -5,7 +5,7 @@ permalink: /algorithm/graph/connectivity/scc/
 ---
 
 ## 简介
-[强连通分量基础概念](../concept.md#强连通分量){.readmore}
+[强连通分量基础概念](../concept.md#连通性定义){.readmore}
 了解完概念，我们来考虑一下怎么判断一个点在 SCC 中，容易发现，有以下情况：  
 1.  有一个返祖边可以到达它的祖先。
 2.  有一个横插边指向的节点在 SCC 中。
