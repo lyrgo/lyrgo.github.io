@@ -22,3 +22,16 @@ permalink: /algorithm/graph/connectivity/dcc/
 为什么？可以将所有度数为一的点左右两端一一连边，中间如果有单独的一个就随便连一个度数为一的点即可。  
 
 </LinkCard>
+
+## 点双连通分量
+和边双连通分量一样，一个点 $x$ 和他的一个儿子 $y$，怎么判断 $x$ 是割点呢？只需要看从 $y$ 能不能走到 $x$ 及其祖先上，如果 $x$ 不是根节点，那么 $x$ 就是一个割点；否则至少需要有两个子树满足 $low_y\geq x$，这时候 $x$ 即为割点（可以想想一条链）。  
+
+## 例题
+### Acwing 1183. 电力{#acwing-1183}
+<LinkCard title="Acwing 1183. 电力" href="https://www.acwing.com/problem/content/1185/">
+
+读完题目，容易发现其实答案只与割点和连通块个数有关。  
+具体的，如果原本有 $cnt$ 个连通块，删除当前割点后这个连通块会裂成 $s$ 个，答案即为 $\max\left\{ cnt+s-1 \right\}$。  
+
+
+</LinkCard>
