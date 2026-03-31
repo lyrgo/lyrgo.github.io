@@ -105,6 +105,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                         'dcc',
                     ]
                 },
+                'bipartite',
                 'min-cycle',
             ]
         },
