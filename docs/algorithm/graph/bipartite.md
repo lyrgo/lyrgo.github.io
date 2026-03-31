@@ -21,11 +21,22 @@ permalink: /algorithm/graph/bipartite/
 :::
 
 ## 例题
-
 ### Acwing 257. 关押罪犯{#acwing-257}
 <LinkCard title="Acwing 257. 关押罪犯" href="https://www.acwing.com/problem/content/259/">
 
 题目要求将原图分为两个部分，使得每个部分内部的边权的最大值最小。  
+考虑二分答案 $mid$，显然只需要对所有 $>mid$ 的边进行染色，看有无冲突即可。  
 
+</LinkCard>
+
+## 匈牙利算法
+~~月老算法~~  
+
+## 例题
+### Acwing 372. 棋盘覆盖{#acwing-372}
+<LinkCard title="Acwing 372. 棋盘覆盖" href="https://www.acwing.com/problem/content/374/">
+
+网格图是一个常见的二分图（考虑棋盘一样黑白染色，一定是个二分图）。  
+显然，我们可以将每个相邻网格两两连边，放最多卡片等价于取最多的边使其没有重复的两个端点，也就是我们在求最大匹配，匈牙利算法处理即可。  
 
 </LinkCard>
