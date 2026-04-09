@@ -33,3 +33,14 @@ permalink: /algorithm/graph/euler/
 此时，答案其实是 $\frac{sum}{20\text{km/h}}$（其中 $sum$ 是路径长度和），压根不是图论问题。  
 
 </LinkCard>
+
+### Acwing 1184. 欧拉回路{#acwing-1184}
+<LinkCard title="Acwing 1184. 欧拉回路" href="https://www.acwing.com/problem/content/1186/">
+
+一道模板题，根据上述细节进行处理即可。  
+::: important
+在未经优化的 DFS 中，如果遇到一个点多次自环，容易发现递归过程中是 $O(m^2)$ 的复杂度。  
+具体解决方法是将点 $u$ 的遍历改为 `for(int &i = h[u] ; ~i ; )`，并且在接下来 `continue` 和向下递归的时候注意添加 `i=ne[i]`，能够避免当前节点以上的祖先节点按照原顺序再跑一遍。
+:::
+
+</LinkCard>
