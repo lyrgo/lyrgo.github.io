@@ -78,6 +78,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                         'hld',
                     ]
                 },
+                'topo',
                 {
                     text: '最短路问题',
                     collapsed: true,
