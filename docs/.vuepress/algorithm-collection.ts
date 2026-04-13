@@ -166,6 +166,15 @@ export const algorithm: ThemeCollectionItem = defineCollection({
             items: [
                 'scanning',
             ]
+        },
+        {
+            text: '杂项',
+            collapsed: true,
+            icon: 'icon-park-outline:more-app',
+            prefix: 'misc',
+            items: [
+                'bit',
+            ]
         }
     ],
 })
