@@ -174,6 +174,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
             prefix: 'misc',
             items: [
                 'bit',
+                'recurrence',
             ]
         }
     ],
