@@ -155,6 +155,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
             icon: 'icon-park-outline:arithmetic-buttons',
             prefix: 'math',
             items: [
+                'basic',
                 'abs-inequality',
                 'prime',
             ],
