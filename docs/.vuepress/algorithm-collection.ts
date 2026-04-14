@@ -156,6 +156,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
             prefix: 'math',
             items: [
                 'abs-inequality',
+                'prime',
             ],
         },
         {
