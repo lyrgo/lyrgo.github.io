@@ -156,6 +156,22 @@ export const algorithm: ThemeCollectionItem = defineCollection({
             prefix: 'math',
             items: [
                 'basic',
+                {
+                    text: '组合数学',
+                    collapsed: true,
+                    prefix: 'combinatorics',
+                    items: [
+                        'derangement',
+                    ]
+                },
+                {
+                    text: '线性代数',
+                    collapsed: true,
+                    prefix: 'linear-algebra',
+                    items: [
+                        'matrix',
+                    ]
+                },
                 'abs-inequality',
                 'prime',
             ],
