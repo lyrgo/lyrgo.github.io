@@ -1,0 +1,45 @@
+---
+title: 最大公因数
+createTime: 2026/04/21 18:29:36
+permalink: /algorithm/math/number-theory/gcd/
+---
+
+## 定义
+**公因数**是指一个数是一组数中每个数的因数。  
+**最大公因数**是指公因数中最大的那个。  
+
+通常写作 $\gcd(a,b)$ 或 $(a,b)$。  
+
+## 欧几里得算法
+对于两个数 $a$ 和 $b$（$a>b$），怎么求它们的最大公因数呢？  
+显然，若 $a\bmod b=0$，则 $b$ 为两者最大公因数；若 $a\bmod b\neq 0$，则 $\gcd(b,a\bmod b)$ 即为最大公因数，下面给出证明。  
+
+::: details 证明 $gcd(a,b)=gcd(b,a\bmod b)$
+令 $a=k\times b+c\ (0\leq c<b)$。  
+
+先证充分性。  
+设正整数 $d$ 满足 $d\mid a$ 且 $d\mid b$。  
+由于 $c=a-k\times b$，则有 $\frac c d=\frac a d-k\times \frac b d$，此时右边都为整数，则 $\frac c d$ 也为整数，即 $d\mid c$ 成立。  
+因此，$\gcd(a,b)\Rightarrow\gcd(b,a\bmod b)$。  
+
+再证必要性。  
+设正整数 $d$ 满足 $d\mid c$ 且 $d\mid b$。  
+由于 $c+k\times b=a$，则有 $\frac c d+k\times \frac b d=\frac a d$，此时左边都为整数，则 $\frac a d$ 也为整数，即 $d\mid a$ 成立。  
+因此，$\gcd(b,a\bmod b)\Rightarrow\gcd(a,b)$。  
+:::
+
+那么复杂度怎么样呢？我们来讨论一下：  
+1.  若 $a<b$，递归 $\gcd(b,a)$。
+2.  若 $a\geq b$，递归 $\gcd(b,a\bmod b)$，显然 $a$ 大小至少缩小一倍，而每发生一次 $1$，一定接着发生 $2$，即最多递归 $\log V$ 层。  
+
+即复杂度为 $O(\log \min(a,b))$。  
+
+## Stein 算法
+由于大整数的除法及取模操作及其昂贵，而减法与位移操作很快，所以 Stein 算法诞生了。  
+
+具体原理是根据奇偶性进行分类：
+1.  若 $a$ 和 $b$ 都是偶数，显然 $\gcd(a,b)=2\times\gcd(\frac a 2,\frac b 2)$。  
+2.  若 $a$ 为偶数，$b$ 为奇数，显然 $\gcd(a,b)=\gcd(\frac a 2,b)$。  
+3.  若 $a$ 和 $b$ 都是奇数，显然 $\gcd(a,b)=\gcd(\left|a-b\right|,\min(a,b))$。  
+
+时间复杂度为 $O(\log V)$。  

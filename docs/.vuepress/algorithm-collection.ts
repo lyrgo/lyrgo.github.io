@@ -162,6 +162,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                     prefix: 'number-theory',
                     items: [
                         'prime',
+                        'gcd',
                     ]
                 },
                 {
