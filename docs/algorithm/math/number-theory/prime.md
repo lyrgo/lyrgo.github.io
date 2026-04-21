@@ -1,7 +1,7 @@
 ---
 title: 质数
 createTime: 2026/04/14 18:53:08
-permalink: /algorithm/math/prime/
+permalink: /algorithm/math/number-theory/prime/
 ---
 
 ## 简介

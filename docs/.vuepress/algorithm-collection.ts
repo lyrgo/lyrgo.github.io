@@ -157,6 +157,14 @@ export const algorithm: ThemeCollectionItem = defineCollection({
             items: [
                 'basic',
                 {
+                    text: '数论',
+                    collapsed: true,
+                    prefix: 'number-theory',
+                    items: [
+                        'prime',
+                    ]
+                },
+                {
                     text: '组合数学',
                     collapsed: true,
                     prefix: 'combinatorics',
@@ -173,7 +181,6 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                     ]
                 },
                 'abs-inequality',
-                'prime',
             ],
         },
         {
