@@ -163,6 +163,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                     items: [
                         'prime',
                         'gcd',
+                        'function',
                     ]
                 },
                 {
