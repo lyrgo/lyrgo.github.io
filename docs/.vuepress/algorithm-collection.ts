@@ -173,6 +173,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                     items: [
                         'combination',
                         'derangement',
+                        'vandermonde-convolution',
                     ]
                 },
                 {
