@@ -171,6 +171,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                     collapsed: true,
                     prefix: 'combinatorics',
                     items: [
+                        'combination',
                         'derangement',
                     ]
                 },
