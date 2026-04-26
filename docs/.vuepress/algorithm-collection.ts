@@ -164,6 +164,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                         'prime',
                         'gcd',
                         'function',
+                        'bezouts',
                     ]
                 },
                 {
