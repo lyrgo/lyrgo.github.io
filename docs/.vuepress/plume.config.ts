@@ -55,7 +55,7 @@ export default defineThemeConfig({
     profile: {
         avatar: 'https://cdn.luogu.com.cn/upload/usericon/1085280.png',
         name: 'lyrgo',
-        description: 'lyr&#x27;s blog',
+        description: 'Never think of yourself as a failure',
         circle: true,
         // location: '',
         // organization: '',
