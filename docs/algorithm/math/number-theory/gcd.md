@@ -43,3 +43,10 @@ permalink: /algorithm/math/number-theory/gcd/
 3.  若 $a$ 和 $b$ 都是奇数，显然 $\gcd(a,b)=\gcd(\left|a-b\right|,\min(a,b))$。  
 
 时间复杂度为 $O(\log V)$。  
+
+## 扩展欧几里得算法
+[裴蜀定理](./bezouts.md){.readmore}
+求对于不全为零的整数 $a,b$，$ax+by=\gcd(a,b)$ 的一组整数解 $(x,y)$。  
+对于当前的 $a,b$，考虑进行分讨：
+1.  $b=0$ 时，显然一组解为 $x=1,y=0$。  
+2.  对于下一层状态 $(b,a\%b)$ 的解 $x',y'$，显然有 $bx'+(a\%b)y'=\gcd(b,a\%b)$，将 $a\%b=a-a\times\left\lfloor \frac b a \right\rfloor$ 带入并整理，得到 $bx'+(a-a\times\left\lfloor \frac b a \right\rfloor)y'=\gcd(a,b)$
