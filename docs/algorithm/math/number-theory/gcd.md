@@ -49,4 +49,27 @@ permalink: /algorithm/math/number-theory/gcd/
 求对于不全为零的整数 $a,b$，$ax+by=\gcd(a,b)$ 的一组整数解 $(x,y)$。  
 对于当前的 $a,b$，考虑进行分讨：
 1.  $b=0$ 时，显然一组解为 $x=1,y=0$。  
-2.  对于下一层状态 $(b,a\%b)$ 的解 $x',y'$，显然有 $bx'+(a\%b)y'=\gcd(b,a\%b)$，将 $a\%b=a-a\times\left\lfloor \frac b a \right\rfloor$ 带入并整理，得到 $bx'+(a-a\times\left\lfloor \frac b a \right\rfloor)y'=\gcd(a,b)$
+2.  对于下一层状态 $(b,a\bmod b)$ 的解 $x',y'$，显然有 $bx'+(a\bmod b)y'=\gcd(b,a\bmod b)$，将 $a\bmod b=a-a\times\left\lfloor \frac a b \right\rfloor$ 带入并整理，得到 $bx'+(a-a\times\left\lfloor \frac a b \right\rfloor)y'=\gcd(a,b)$，其中 $\gcd(a,a\bmod b)=\gcd(a,b)$。  
+    然后，考虑把这个式子写成 $ax+by=\gcd(a,b)$ 的形式，也就是 $a\cdot y'+b\cdot (x'-\left\lfloor \frac a b \right\rfloor)$，所以回溯公式为：
+
+$$
+\begin{cases}
+x=y' \\
+y=x'-\left\lfloor \frac a b\right\rfloor\cdot y'
+\end{cases}
+$$
+
+那么如何从 $ax+by=\gcd(a,b)$ 扩展到 $ax+by=c$ 呢？  
+显然，必须有 $\gcd(a,b)\mid c$。  
+有了这个大前提，我们先对 $\gcd(a,b)$ 求出一组特解 $x_0$ 和 $y_0$，然后将其扩倍，显然现在的一组解是 $x_1=x_0\times \frac{c}{\gcd(a,b)}$、$y_1=y_0\times \frac c {\gcd(a,b)}$。  
+有了这组特解，我们可以写出**通解公式**：
+$$
+\begin{cases} 
+ x=x_1+k\times \frac{b}{\gcd(a,b)} \\
+ y=y_1-k\times \frac{a}{\gcd(a,b)}
+\end{cases}
+\quad (k\in \mathbb Z)
+$$
+直观的讲，就是在满足 $ax+by=c$ 的情况下将 $x,y$ 进行一增一减来构造所有解。  
+
+特别的，如果想要求出最小的 $x>0$，则答案为 $x_{\min}=(x_1\bmod m+m)\bmod m$（其中 $m=\left|\frac{b}{\gcd(a,b)}\right|$）
