@@ -155,6 +155,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                     prefix: 'combinatorics',
                     items: [
                         'combination',
+                        'inclusion-exclusion-principle',
                         'derangement',
                         'vandermonde-convolution',
                     ]
