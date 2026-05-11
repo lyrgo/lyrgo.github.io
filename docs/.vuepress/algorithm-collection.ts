@@ -17,6 +17,15 @@ export const algorithm: ThemeCollectionItem = defineCollection({
             ],
         },
         {
+            text: '基础算法',
+            collapsed: true,
+            icon: 'icon-park-outline:puzzle',
+            prefix: 'basic',
+            items: [
+                'prefix-sum',
+            ]
+        },
+        {
             text: '数据结构',
             collapsed: true,
             icon: 'carbon:db2-database',
