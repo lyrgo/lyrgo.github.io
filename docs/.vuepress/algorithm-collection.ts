@@ -159,6 +159,14 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                     ]
                 },
                 {
+                    text: '多项式与生成函数',
+                    collapsed: true,
+                    prefix: 'poly',
+                    items: [
+                        'ogf',
+                    ]
+                },
+                {
                     text: '组合数学',
                     collapsed: true,
                     prefix: 'combinatorics',
