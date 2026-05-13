@@ -174,6 +174,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                         'combination',
                         'inclusion-exclusion-principle',
                         'derangement',
+                        'catalan',
                         'vandermonde-convolution',
                         'generalized-binomial-theorem',
                     ]
