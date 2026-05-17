@@ -164,6 +164,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                     prefix: 'poly',
                     items: [
                         'ogf',
+                        'pentagonal-number-theorem',
                     ]
                 },
                 {
