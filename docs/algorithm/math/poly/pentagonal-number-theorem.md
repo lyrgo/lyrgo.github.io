@@ -32,3 +32,10 @@ $$
 \prod_{i=1}^\infty (1 - x^i) = \sum_{k=-\infty}^{\infty} (-1)^k x^{\frac{3k^2 - k}{2}} = 1 - x - x^2 + x^5 + x^7 - x^{12} - x^{15} + \cdots
 $$
 证明笔者也不会，不过有个 [visit_world](https://blog.csdn.net/visit_world/article/details/52734860) 大佬的链接。  
+
+## 应用
+回归到刚才的问题，我们实际要求的是 $x^n$ 项的系数，考虑将五边形数定理带入，将 $P(x)$ 乘到右边，得到：
+$$
+P_n = P_{n-1} + P_{n-2} - P_{n-5} - P_{n-7} + \cdots
+$$
+由于五边形数是 $O(n^2)$ 的级别，所以只需要查表 $O(\sqrt n)$ 个转移即可。  
