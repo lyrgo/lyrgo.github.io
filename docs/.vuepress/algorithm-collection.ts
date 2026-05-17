@@ -190,6 +190,14 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                         'matrix',
                     ]
                 },
+                {
+                    text: '博弈论',
+                    collapsed: true,
+                    prefix: 'game-theory',
+                    items: [
+                        'icg',
+                    ]
+                },
                 'order-theory',
                 'abs-inequality',
             ],
