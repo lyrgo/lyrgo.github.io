@@ -1,7 +1,7 @@
 ---
 title: ABC455E Unbalanced ABC Substrings
 createTime: 2026/04/27 19:29:46
-permalink: /blog/atcoder/455/e/
+permalink: /blog/atcoder/abc455/e/
 tags:
     - 容斥原理
 ---
