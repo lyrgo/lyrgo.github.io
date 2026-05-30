@@ -18,3 +18,20 @@ permalink: /algorithm/math/number-theory/bezouts/
 然后证明 $d$ 为最大公因数，令 $g=\gcd(a,b)$，则 $d\leq g$，又因为 $g|a$ 且 $g|b$，则 $g$ 整除任意 $a,b$ 的线性组合，即 $g\mid d$，因此 $g\leq d$。  
 综上， $g=d$，证毕。  
 :::
+
+## Frobenius 硬币问题
+给定两个互质的正整数 $a$ 和 $b$，对于方程 $ax+by=c\ (x,y\geq 0 )$：
+1.  最大的不能表示的数是 $ab-a-b$。  
+2.  不能表示的数一共有 $\frac{(a-1)(b-1)} 2$ 个？
+
+<!-- ::: details $1$ 证明 -->
+问题可以转换为，求最大的 $n$ 使得 $ax+by=n$ 中 $(x,y)$ 无非负整数解。  
+将其放到同余系中，即 $n\equiv by\pmod a$。  
+此时由于 $\gcd(a,b)=1$，当 $y\in [0,a)$ 时，所有的 $by$ 刚好为 $a$ 的完全剩余系。（可以证明两两互不同余，从而得出完全剩余系的结论）  
+也就是说，$\forall r\in [0,a)$，$\exist y\in [0,a)$ 使得 $by\equiv r\pmod a$。  
+
+<!-- ::: -->
+
+<!-- ::: details $2$ 证明 -->
+
+<!-- ::: -->
