@@ -42,5 +42,73 @@ $$
 
 容易发现，两种的区别是：第一种只贡献 $p$ 的偶数次方；第二种贡献 $p$ 的奇数次幂，并附带 $p-1$（或 $\frac 1 {p-1}$）。  
 
-有了这个，我们考虑把 $\frac a b$ 进行拆分，容易发现，如果 $p$ 次数为偶数次，一定来源于 1，奇数次同理。  
+有了这个，我们考虑把 $\frac a b$ 进行拆分，容易发现，如果 $p$ 次数为偶数次，一定来源于 1，奇数次同理，具体还原流程可以参考下方代码中高亮部分。  
 这里有一个问题：由于奇数次一定会附带 $p-1$，这会导致大质数污染小质数，如 $5-1=4=2^2$，所以我们要从大到小枚举 $p$。  
+
+## 代码
+``` cpp :collapsed-lines
+#include <iostream>
+#include <algorithm>
+#include <cstdio>
+#include <cstring>
+#include <cmath>
+
+using namespace std;
+
+typedef long long LL;
+
+const int N = 1e4+10;
+
+LL a , b;
+LL cnta[N] , cntb[N];
+
+int main() {
+	scanf("%lld%lld" , &a , &b);
+	
+	for(int i = 2 ; i*i <= a ; i ++) 
+		while(a % i == 0) cnta[i] ++ , a /= i;
+	if(a > 1) cnta[a] ++;
+	
+	for(int i = 2 ; i*i <= b ; i ++)
+		while(b % i == 0) cntb[i] ++ , b /= i;
+	if(b > 1) cntb[b] ++;
+	
+	LL m = 1 , n = 1;
+	for(int i = 1e4 ; i >= 2 ; i --) {
+		LL x = min(cnta[i] , cntb[i]);
+		cnta[i] -= x;
+		cntb[i] -= x;
+		if(cnta[i] == cntb[i]) continue;
+		
+		if(cnta[i]) {
+			if(cnta[i] % 2 == 0) {
+				m *= i; n *= i;
+				for(int j = 1 ; j <= cnta[i]/2 ; j ++)
+					m *= i;
+			} else {
+				for(int j = 1 ; j <= cnta[i]/2 + 1 ; j ++)
+					m *= i;
+				LL tmp = i-1;
+				for(int j = 2 ; j*j <= tmp ; j ++)
+					while(tmp % j == 0) cntb[j] ++ , tmp /= j;
+				if(tmp > 1) cntb[tmp] ++;
+			}
+		} else {
+			if(cntb[i] % 2 == 0) {
+				m *= i; n *= i;
+				for(int j = 1 ; j <= cntb[i]/2 ; j ++)
+					n *= i;
+			} else {
+				for(int j = 1 ; j <= cntb[i]/2 + 1 ; j ++)
+					n *= i;
+				LL tmp = i-1;
+				for(int j = 2 ; j*j <= tmp ; j ++)
+					while(tmp % j == 0) cnta[j] ++ , tmp /= j;
+				if(tmp > 1) cnta[tmp] ++;
+			}
+		}
+	}
+	printf("%lld %lld\n" , m , n);
+	return 0;
+}
+```
