@@ -73,3 +73,15 @@ $$
 直观的讲，就是在满足 $ax+by=c$ 的情况下将 $x,y$ 进行一增一减来构造所有解。  
 
 特别的，如果想要求出最小的 $x>0$，则答案为 $x_{\min}=(x_1\bmod m+m)\bmod m$（其中 $m=\left|\frac{b}{\gcd(a,b)}\right|$）
+
+``` cpp
+LL exgcd(LL a , LL b , LL &x , LL &y) {
+    if (!b) {
+        x = 1; y = 0;
+        return a;
+    }
+    LL d = exgcd(b , a % b , y , x);
+    y -= a/b*x;
+    return d;
+}
+```
