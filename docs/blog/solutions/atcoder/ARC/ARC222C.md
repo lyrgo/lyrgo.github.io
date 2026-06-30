@@ -1,5 +1,5 @@
 ---
-title: ARC222C
+title: ARC222C 2 Directions vs 4 Directions
 createTime: 2026/06/24 21:30:54
 permalink: /blog/atcoder/arc/222/c/
 tags:
