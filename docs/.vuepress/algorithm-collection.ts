@@ -109,6 +109,14 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                 'bipartite',
                 'euler',
                 'min-cycle',
+                {
+                    text: '网络流',
+                    collapsed: true,
+                    prefix: 'flow',
+                    items: [
+                        'concept',
+                    ]
+                },
             ]
         },
         {
