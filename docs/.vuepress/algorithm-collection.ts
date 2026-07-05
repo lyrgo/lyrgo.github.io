@@ -115,6 +115,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                     prefix: 'flow',
                     items: [
                         'concept',
+                        'max',
                     ]
                 },
             ]
