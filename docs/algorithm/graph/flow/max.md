@@ -77,4 +77,88 @@ int main() {
 }
 ```
 
-## 
+## Dinic 算法
+Dinic 算法与 EK 算法的本质是相同的，都是寻找增广路，但 EK 算法每次只找一条，导致效率较低，Dinic 解决了这个问题。  
+具体流程：  
+1.	跑 BFS，确认当前是否存在增广路。  
+2.	跑 DFS，将当前所有找到的增广路加入答案。  
+
+以此往复，直到没有增广路即可，其中有几个比较重要的优化：  
+*	**分层图优化**：将原图构建成分层图，避免因为环导致的复杂度错误。  
+*	**当前弧优化**：将每个点现在用到的边标记，下次再找这个点直接用下一个边。  
+*	在 DFS 时，如果已经达到前面能够支持的流量就不再找别的增广路，直接返回。  
+
+``` cpp :collapsed-lines
+#include <iostream>
+#include <algorithm>
+#include <cstdio>
+#include <cstring>
+#include <cmath>
+
+using namespace std;
+
+const int N = 1e4+10 , M = 2e5+10;
+const int INF = 0x3f3f3f3f;
+
+int n , m , S , T;
+int h[N] , e[M] , ne[M] , w[M] , idx;
+int q[N] , d[N] , cur[N]; 
+
+void add(int a , int b , int c) {
+	w[idx] = c , e[idx] = b , ne[idx] = h[a] , h[a] = idx ++;
+	w[idx] = 0 , e[idx] = a , ne[idx] = h[b] , h[b] = idx ++;
+}
+
+int find(int u , int limit) {
+	if(u == T) return limit;
+	int flow = 0;
+	for(int i = cur[u] ; ~i && flow < limit ; i = ne[i]) {
+		cur[u] = i;
+		int ver = e[i];
+		if(d[ver] == d[u] + 1 && w[i]) {
+			int t = find(ver , min(w[i] , limit-flow));
+			if(!t) d[ver] = -1;
+			flow += t; w[i] -= t; w[i^1] += t;
+		}
+	}
+	return flow;
+}
+
+bool bfs() {
+	memset(d , -1 , sizeof d);
+	int hh = 0 , tt = 0;
+	q[tt] = S; d[S] = 0; cur[S] = h[S];
+	while(hh <= tt) {
+		int t = q[hh ++];
+		for(int i = cur[t] ; ~i ; i = ne[i]) {
+			int ver = e[i];
+			if(d[ver] == -1 && w[i]) {
+				d[ver] = d[t] + 1;
+				cur[ver] = h[ver];
+				if(ver == T) return true;
+				q[++ tt] = ver;
+			}
+		}
+	}
+	return false;
+}
+
+int dinic() {
+	int r = 0 , flow;
+	while(bfs()) while(flow = find(S , INF)) r += flow;
+	return r;
+}
+
+int main() {
+	memset(h , -1 , sizeof h);
+	scanf("%d%d%d%d" , &n , &m , &S , &T);
+	while(m --) {
+		int a , b , c;
+		scanf("%d%d%d" , &a , &b , &c);
+		add(a , b , c);
+	}
+	
+	printf("%d\n" , dinic());
+	return 0;
+}
+```
