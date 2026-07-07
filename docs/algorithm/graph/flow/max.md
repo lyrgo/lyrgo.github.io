@@ -165,3 +165,51 @@ int main() {
 
 ## 做题方法
 对于给出题目中的每一种可行方案，我们需要一一对应地构造出可行流，并且证明它的容量限制和流量守恒。  
+
+## 常见转换
+### 无源汇上下界可行流
+给出一张无向图，每条边都有流量下界和流量上界，求一种满足流量守恒的方案。  
+我们先添加源点 $S$ 和汇点 $T$，由于每个边都有下界，实际原图可行流 $f$ 每条边的流量应满足 $c_l(u,v)\leq f(u,v)\leq c_u(u,v)$，其中 $c_l$ 表示下界，$c_r$ 表示上界。  
+由于我们只能处理下界为 $0$ 的边，所以考虑同时减去下界，得到 $0\leq f(u,v)-c_l(u,v)\leq c_u(u,v)-c_l(u,v)$，从而我们得到 $f'(u,v)=f(u,v)-c_l(u,v),\; c'(u,v)=c_u(u,v)-c_l(u,v)$。  
+但是，这样处理以后不能保证流量守恒，我们对于一个点 $x$ 进行分析：从 $x$ 流出的容量下界为 $c_{out}=\sum_{v\in V}c_l(x,v)$，流入的容量下界为 $c_{in}=\sum_{u\in V}c_l(u,x)$，此时 $c_{out}$ 和 $c_{in}$ 等价于 $x$ 少进入、流出的量，也就是说，若 $c_{in}>c_{out}$，此时流量不守恒，$x$ 仍需要 $c_{in}-c_{out}$，我们需要补齐这部分流量（若 $c_{out}>c_{in}$ 同理）。  
+怎么补齐呢？我们可以从源点 $S$ 单独拉一根流量为 $c_{in}-c_{out}$ 的管子，相当于补齐了这部分流量差距，也就满足了流量守恒。（如果 $c_{out}>c_{in}$，那么向 $T$ 扯管子）  
+有了这些，可以证明原网络的可行流与新网络的最大流一一对应。  
+
+代码片段：  
+``` cpp :collapsed-lines
+void add(int a , int b , int c , int d) {
+	w[idx] = d-c , l[idx] = c , e[idx] = b , ne[idx] = h[a] , h[a] = idx ++;
+	w[idx] = 0 , e[idx] = a , ne[idx] = h[b] , h[b] = idx ++;
+}
+
+int main() {
+	memset(h , -1 , sizeof h);
+	scanf("%d%d" , &n , &m);
+	S = 0; T = n+1;
+	for(int i = 1 ; i <= m ; i ++) {
+		int a , b , c , d;
+		scanf("%d%d%d%d" , &a , &b , &c , &d);
+		add(a , b , c , d);
+		A[b] += c; A[a] -= c;
+	}
+	
+	int tot = 0;
+	for(int i = 1 ; i <= n ; i ++) {
+		if(A[i] > 0) {
+			add(S , i , 0 , A[i]);
+			tot += A[i];
+		} else if(A[i] < 0) {
+			add(i , T , 0 , -A[i]);
+		}
+	}
+	
+	if(dinic() != tot) puts("NO");
+	else {
+		puts("YES");
+		for(int i = 0 ; i < m*2 ; i += 2) {
+			printf("%d\n" , w[i^1]+l[i]);
+		}
+	}
+	return 0;
+}
+```
