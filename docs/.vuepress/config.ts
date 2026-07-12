@@ -112,6 +112,7 @@ export default defineUserConfig({
             table: true,
             math: {             // 启用数学公式
                 type: 'katex',
+                mhchem: true,
             },
             //   chartjs: true,      // 启用 chart.js
             //   echarts: true,      // 启用 ECharts
