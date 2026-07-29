@@ -166,6 +166,8 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                         'function',
                         'bezouts',
                         'inverse',
+                        'linear-equation',
+                        'crt',
                     ]
                 },
                 {
