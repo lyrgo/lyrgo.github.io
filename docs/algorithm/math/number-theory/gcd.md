@@ -85,3 +85,9 @@ LL exgcd(LL a , LL b , LL &x , LL &y) {
     return d;
 }
 ```
+
+## 一次同余方程
+求解 $a\cdot x\equiv b\pmod m$。  
+显然，我们可以将其写作 $a\cdot x+m\cdot y=b$，令 $g=\gcd(a,m)$。  
+-   若 $g\neq 1$，原方程无解。  
+-   否则求出一组可行解 $x_0,y_0$，则其通解为 $x=x_0+\frac m g\times t$，也就是说，在 $[0,m)$ 范围内，共有 $g$ 个不同的解。  
