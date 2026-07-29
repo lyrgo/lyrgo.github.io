@@ -165,6 +165,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                         'gcd',
                         'function',
                         'bezouts',
+                        'inverse',
                     ]
                 },
                 {
