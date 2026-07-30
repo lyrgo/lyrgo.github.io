@@ -168,6 +168,8 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                         'inverse',
                         'linear-equation',
                         'crt',
+                        'dirichlet',
+                        'mobius',
                     ]
                 },
                 {
