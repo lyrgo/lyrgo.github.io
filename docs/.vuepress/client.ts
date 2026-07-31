@@ -7,7 +7,7 @@ import { defineClientConfig } from 'vuepress/client'
 // import CustomComponent from './theme/components/Custom.vue'
 
 // @ts-ignore
-import './theme/styles/custom.css'
+import './theme/styles/alert.css'
 
 export default defineClientConfig({
   enhance({ app }) {
