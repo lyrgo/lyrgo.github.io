@@ -1,50 +1,200 @@
+/* ================================================================
+   GitHub 风格 Alert 样式（透明背景，纯色图标）
+   适配 vuepress-theme-plume 的 .hint-container
+   深色模式使用主题变量 [data-theme="dark"]
+   ================================================================ */
+
+/* ---------- 颜色变量 ---------- */
 :root {
-  /** 主题颜色 */
-
-  /*
-  --vp-c-brand-1: #5086a1;
-  --vp-c-brand-2: #6aa1b7;
-  --vp-c-brand-3: #8cccd5;
-  --vp-c-brand-soft: rgba(131, 208, 218, 0.314);
-  */
-
-  /** 背景颜色 */
-
-  /*
-  --vp-c-bg: #fff;
-  --vp-c-bg-alt: #f6f6f7;
-  --vp-c-bg-elv: #fff;
-  --vp-c-bg-soft: #f6f6f7;
-  */
-
-  /** 文本颜色 */
-
-  /*
-  --vp-c-text-1: rgba(60, 60, 67);
-  --vp-c-text-2: rgba(60, 60, 67, 0.78);
-  --vp-c-text-3: rgba(60, 60, 67, 0.56);
-  */
+  --note-color: #0969da;
+  --tip-color: #1f883d;
+  --important-color: #8250df;
+  --warning-color: #d4920b;
+  --caution-color: #cf222e;
+  --border-opacity: 0.6;
 }
 
-/** 深色模式 */
-[data-theme="dark"] {
-  /*
-  --vp-c-brand-1: #8cccd5;
-  --vp-c-brand-2: #6aa1b7;
-  --vp-c-brand-3: #5086a1;
-  --vp-c-brand-soft: rgba(131, 208, 218, 0.314);
-  */
+/* ---------- 基础容器（背景透明） ---------- */
+.hint-container {
+  padding: 0.75rem 1rem !important;
+  margin: 1rem 0 !important;
+  border: none !important;
+  border-left: 0.25rem solid !important;
+  border-radius: 0 !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  color: #1f2328 !important;
+}
 
-  /*
-  --vp-c-bg: #1b1b1f;
-  --vp-c-bg-alt: #161618;
-  --vp-c-bg-elv: #202127;
-  --vp-c-bg-soft: #202127;
-  */
+.hint-container .hint-container-title {
+  display: flex !important;
+  align-items: center !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+  color: #1f2328 !important;
+  margin: 0 0 0.25rem 0 !important;
+  padding: 0 !important;
+}
 
-  /*
-  --vp-c-text-1: rgba(255, 255, 245, 0.86);
-  --vp-c-text-2: rgba(235, 235, 245, 0.6);
-  --vp-c-text-3: rgba(235, 235, 245, 0.38);
-  */
+.hint-container .hint-container-title::before {
+  content: "" !important;
+  display: inline-block !important;
+  width: 1.2em !important;
+  height: 1.2em !important;
+  margin-right: 0.4em !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  flex-shrink: 0 !important;
+  transform: none !important;
+}
+
+.hint-container p {
+  margin: 0.25rem 0 !important;
+  color: #1f2328 !important;
+  line-height: 1.5 !important;
+}
+
+.hint-container code {
+  background-color: #f1f8ff !important;
+  border-radius: 4px !important;
+  padding: 0.1rem 0.4rem !important;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace !important;
+  font-size: 0.9em !important;
+  color: #1f2328 !important;
+}
+
+.hint-container a {
+  color: #0969da !important;
+  text-decoration: underline !important;
+}
+.hint-container a:hover {
+  text-decoration: none !important;
+}
+
+.hint-container > :not(summary):first-child {
+  margin-top: 0 !important;
+}
+.hint-container > :not(summary):last-child {
+  margin-bottom: 0 !important;
+}
+
+/* ---------- 各类型边框（半透明） ---------- */
+.hint-container.note {
+  border-left-color: color-mix(in srgb, var(--note-color), transparent calc((1 - var(--border-opacity, 0.6)) * 100%)) !important;
+}
+.hint-container.tip {
+  border-left-color: color-mix(in srgb, var(--tip-color), transparent calc((1 - var(--border-opacity, 0.6)) * 100%)) !important;
+}
+.hint-container.important {
+  border-left-color: color-mix(in srgb, var(--important-color), transparent calc((1 - var(--border-opacity, 0.6)) * 100%)) !important;
+}
+.hint-container.warning {
+  border-left-color: color-mix(in srgb, var(--warning-color), transparent calc((1 - var(--border-opacity, 0.6)) * 100%)) !important;
+}
+.hint-container.caution {
+  border-left-color: color-mix(in srgb, var(--caution-color), transparent calc((1 - var(--border-opacity, 0.6)) * 100%)) !important;
+}
+
+/* ---------- 各类型图标（纯色无背景，使用 mask-image） ---------- */
+
+/* Note: 信息图标 */
+.hint-container.note .hint-container-title::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  background-color: var(--note-color) !important;
+  background-image: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* Tip: 灯泡 */
+.hint-container.tip .hint-container-title::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  background-color: var(--tip-color) !important;
+  background-image: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* Important: 评论/对话气泡 */
+.hint-container.important .hint-container-title::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  background-color: var(--important-color) !important;
+  background-image: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* Warning: 警告三角 */
+.hint-container.warning .hint-container-title::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  background-color: var(--warning-color) !important;
+  background-image: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* Caution: 停止/禁止标志 */
+.hint-container.caution .hint-container-title::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53Zm.84 1.28L1.5 5.31v5.38l3.81 3.81h5.38l3.81-3.81V5.31L10.69 1.5ZM8 4a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53Zm.84 1.28L1.5 5.31v5.38l3.81 3.81h5.38l3.81-3.81V5.31L10.69 1.5ZM8 4a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  background-color: var(--caution-color) !important;
+  background-image: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* ============================================================
+   深色模式（使用主题变量 [data-theme="dark"]）
+   ============================================================ */
+
+[data-theme="dark"] .hint-container {
+  background-color: transparent !important;
+  color: var(--vp-c-text-1, #f0f6fc) !important;
+}
+
+[data-theme="dark"] .hint-container .hint-container-title {
+  color: var(--vp-c-text-1, #f0f6fc) !important;
+}
+
+[data-theme="dark"] .hint-container p {
+  color: var(--vp-c-text-1, #f0f6fc) !important;
+}
+
+[data-theme="dark"] .hint-container code {
+  background-color: var(--vp-c-bg-soft, #161b22) !important;
+  color: var(--vp-c-text-1, #f0f6fc) !important;
+}
+
+[data-theme="dark"] .hint-container a {
+  color: var(--vp-c-brand-1, #58a6ff) !important;
+}
+
+/* 如果主题没有定义这些变量，使用后备值 */
+[data-theme="dark"] .hint-container .hint-container-title::before {
+  /* 图标颜色在暗色模式下保持不变（由各类型变量控制），无需额外覆盖 */
 }
