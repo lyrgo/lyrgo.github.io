@@ -3,7 +3,7 @@ title: ABC459E Select from Subtrees
 createTime: 2026/05/30 10:24:34
 permalink: /blog/atcoder/abc459/e/
 tags:
-    - 树形DP
+    - 树形 DP
     - 数学
 ---
 
