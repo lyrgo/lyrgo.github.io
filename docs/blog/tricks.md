@@ -2,7 +2,7 @@
 title: 技巧
 createTime: 2026/04/24 20:34:50
 permalink: /blog/tricks/
-sticky: 1
+sticky: 10
 ---
 
 ## 数论
