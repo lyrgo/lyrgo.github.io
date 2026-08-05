@@ -148,6 +148,8 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                 'kmp',
                 'ac-automaton',
                 'manacher',
+                'minimal-string',
+                'z-func',
             ]
         },
         {
