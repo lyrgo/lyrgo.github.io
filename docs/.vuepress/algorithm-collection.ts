@@ -147,6 +147,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
             items: [
                 'kmp',
                 'ac-automaton',
+                'manacher',
             ]
         },
         {
