@@ -150,6 +150,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                 'manacher',
                 'minimal-string',
                 'z-func',
+                'sa',
             ]
         },
         {
