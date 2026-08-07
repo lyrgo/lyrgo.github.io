@@ -52,15 +52,6 @@
   font-size: 0.97rem !important;
 }
 
-.hint-container code {
-  background-color: #f1f8ff !important;
-  border-radius: 4px !important;
-  padding: 0.1rem 0.4rem !important;
-  font-family: ui-monospace, SFMono-Regular, Consolas, monospace !important;
-  font-size: 0.9em !important;
-  color: #1f2328 !important;
-}
-
 .hint-container a {
   color: #0969da !important;
   text-decoration: underline !important;
