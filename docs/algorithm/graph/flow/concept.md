@@ -39,7 +39,7 @@ $$
 
 **最小割**指 $2^{n-2}$ 种割中，容量最小的那个。  
 
-**割的流量**定义为从 $S$ 到 $T$ 的流量减从 $T$ 到 $S$ 的容量，即 $f(S,T)=\left(\sum\limits_{u\in S}\sum\limits_{v\in T}f(u,v)\right) - \left(\sum\limits_{v\in T}\sum\limits_{u\in S}f(v,u)\right)$。  
+**割的流量**定义为从 $S$ 到 $T$ 的流量减从 $T$ 到 $S$ 的流量，即 $f(S,T)=\left(\sum\limits_{u\in S}\sum\limits_{v\in T}f(u,v)\right) - \left(\sum\limits_{v\in T}\sum\limits_{u\in S}f(v,u)\right)$。  
 根据割的流量的定义，显然有 $f(S,T)\leq \left(\sum\limits_{u\in S}\sum\limits_{v\in T}f(u,v)\right)\leq \left(\sum\limits_{u\in S}\sum\limits_{v\in T}c(u,v)\right)$，即割的流量不大于割的容量。  
 
 此外，我们还可以得到**任意可行流通过任意割的流量等于其自身流量**，即 $f(S,T)=|f|$，其中 $|f|$ 表示从原点流出的流量。  
