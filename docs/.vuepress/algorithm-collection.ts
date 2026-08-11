@@ -237,6 +237,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
             items: [
                 'bit',
                 'recurrence',
+                'frac-programming',
             ]
         }
     ],
