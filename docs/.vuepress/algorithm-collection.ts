@@ -118,6 +118,15 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                         'max',
                     ]
                 },
+                {
+                    text: '图的匹配',
+                    collapsed: true,
+                    prefix: 'graph-matching',
+                    items: [
+                        'graph-match',
+                        'bigraph-match',
+                    ]
+                },
             ]
         },
         {
