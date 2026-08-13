@@ -38,3 +38,110 @@ Hopcroft–Karp 算法类似于 Dinic，它一次扩展多条增广路。
 事实上，每次 BFS/DFS 的扫描时间复杂度为 $O(\sqrt m)$。  
 根据引理，前 $\sqrt n$ 轮执行后，最短增广路长度 $>\sqrt n$，由于接下来每条增广路至少需要有 $\sqrt n$ 个属于当前匹配的边，而它们顶点互不相交，所以最多有 $O(\sqrt n)$ 个这样的分量。  
 所以 HK 算法的时间复杂度为 $O(\sqrt n\cdot m)$。
+
+``` cpp:collapsed-lines
+#include <iostream>
+#include <algorithm>
+#include <cstdio>
+#include <cstring>
+#include <cmath>
+
+using namespace std;
+
+const int N = 1010 , M = 5e4+10;
+
+int n , m , k;
+int h[N] , e[M] , ne[M] , idx;
+int match[N] , q[N] , cur[N] , d[N];
+
+void add(int a , int b) {
+	e[idx] = b , ne[idx] = h[a] , h[a] = idx ++;
+}
+
+bool bfs() {
+	memset(d , -1 , sizeof d);
+	int hh = 0 , tt = -1;
+	
+	for(int i = 1 ; i <= n ; i ++)
+		if(!match[i]) d[i] = 0 , q[++ tt] = i;
+	d[0] = -1;
+	while(hh <= tt) {
+		int t = q[hh ++];
+		
+		if(d[0] != -1 && d[t] >= d[0]) continue;
+		
+		for(int i = h[t] ; ~i ; i = ne[i]) {
+			int v = e[i];
+			if(!match[v]) {
+				if(d[0] == -1) d[0] = d[t]+1;
+			} else if(d[match[v]] == -1) {
+				d[match[v]] = d[t]+1;
+				q[++ tt] = match[v];
+			}
+		}
+	}
+	
+	return d[0] != -1;
+}
+
+bool dfs(int u) {
+	if(!u) return true;
+	
+	for(int i = cur[u] ; ~i ; i = ne[i]) {
+		cur[u] = i;
+		int v = e[i];
+		
+		if(d[match[v]] == d[u]+1 && dfs(match[v])) {
+			match[u] = v; match[v] = u;
+			return true;
+		}
+	}
+	
+	d[u] = -1;
+	return false;
+}
+
+int HK() {
+	memset(match , 0 , sizeof match);
+	
+	int r = 0;
+	while(bfs()) {
+		for(int i = 1 ; i <= n ; i ++)
+			cur[i] = h[i];
+		for(int i = 1 ; i <= n ; i ++)
+			if(!match[i]) r += dfs(i);
+	}
+	return r;
+}
+
+int main() {
+	scanf("%d%d%d" , &n , &m , &k);
+	memset(h , -1 , sizeof h);
+	while(k --) {
+		int a , b; scanf("%d%d" , &a , &b);
+		add(a , n+b);
+	}
+	
+	printf("%d\n" , HK());
+	return 0;
+}
+```
+
+## König 定理
+::: note König 定理
+固定最大匹配 $M$，把非匹配边定向为 $X\rightarrow Y$,匹配边定向为 $Y\rightarrow X$，从左侧所有非匹配点出发，设可达点集为 $Z$。  
+**二分图**的**最大匹配**大小等于**最小点覆盖**大小，并且一组最小点覆盖为：
+$$
+C=(X\backslash Z)\cup(Y\cap Z)
+$$
+:::
+::: tip 证明
+如果边 $(x,y)$ 未被 $C$ 覆盖，则 $x\in X\cap Z$ 且 $y\in Y\backslash Z$，则 $(x,y)$ 的匹配情况：  
+-   若 $(x,y)$ 非匹配，可达性会扩展到 $y$，矛盾。  
+-   若 $(x,y)$ 匹配，则到达 $x$ 的交错路必定经过 $y$，矛盾。  
+
+综上，$C$ 覆盖全部边。  
+每个匹配边恰好有一个端点在 $C$，即 $|C|=|M|$；任意点覆盖至少为 $M$ 每条边选择一个端点，大小不小于 $|M|$。  
+
+未完工。。。
+:::
