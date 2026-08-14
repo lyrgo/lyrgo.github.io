@@ -24,3 +24,4 @@ sticky: 5
 | [#3558. 终究是一场梦](https://zhengruioi.com/problem/3558) | 写法过于优美 | $\color{blue}\bigstar$ |
 | [2237. 猪](https://www.acwing.com/problem/content/2239/) | 网络流建模 | $\color{red}\bigstar$ |
 | [3246. 引水入城](/blog/solutions/acwing/3246/) | DP 好题 | $\color{red}\bigstar$ |
+| [CF1637E Best Pair](/blog/solutions/codeforces/CF1637E.md) | 暴力均摊 | $\color{green}\bigstar$ |
