@@ -116,6 +116,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                     items: [
                         'concept',
                         'max',
+                        'min-cut',
                     ]
                 },
                 {
