@@ -25,3 +25,4 @@ sticky: 5
 | [2237. 猪](https://www.acwing.com/problem/content/2239/) | 网络流建模 | $\color{red}\bigstar$ |
 | [3246. 引水入城](/blog/solutions/acwing/3246/) | DP 好题 | $\color{red}\bigstar$ |
 | [CF1637E Best Pair](/blog/solutions/codeforces/CF1637E.md) | 暴力均摊 | $\color{green}\bigstar$ |
+| [CF1418E Expected Damage](https://codeforces.com/problemset/problem/1418/E) | 排列组合好题 | $\color{green}\bigstar$ |
