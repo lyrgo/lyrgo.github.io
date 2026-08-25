@@ -73,6 +73,130 @@ void build() {
 	}
 }
 ```
+## 图论
+### 朱刘算法
+```cpp:collapesd-lines
+#include <iostream>
+#include <algorithm>
+#include <cstdio>
+#include <cstring>
+#include <cmath>
+
+using namespace std;
+
+const int N = 110;
+const double INF = 1e8;
+
+struct PDD {
+	double x , y;
+};
+
+int n , m;
+PDD q[N];
+bool g[N][N];
+double d[N][N] , bd[N][N];
+int pre[N] , bpre[N];
+int dfn[N] , low[N] , dfnidx , stk[N] , top;
+int id[N] , cnt;
+bool st[N] , instk[N];
+
+void dfs(int u) {
+	st[u] = true;
+	for(int i = 1 ; i <= n ; i ++)
+		if(g[u][i] && !st[i]) dfs(i);
+}
+
+bool check() {
+	memset(st , 0 , sizeof st);
+	dfs(1);
+	for(int i = 1 ; i <= n ; i ++)
+		if(!st[i]) return false;
+	return true;
+}
+
+double calc(int i , int j) {
+	double dx = q[i].x - q[j].x;
+	double dy = q[i].y - q[j].y;
+	return sqrt(dx*dx + dy*dy);
+}
+
+void tarjan(int u) {
+	dfn[u] = low[u] = ++ dfnidx;
+	stk[++ top] = u; instk[u] = true;
+	
+	int v = pre[u];
+	if(!dfn[v]) {
+		tarjan(v);
+		low[u] = min(low[u] , low[v]);
+	} else if(instk[v]) low[u] = min(low[u] , dfn[v]);
+	
+	if(low[u] == dfn[u]) {
+		cnt ++;
+		do {
+			v = stk[top --];
+			instk[v] = false;
+			id[v] = cnt;
+		} while(u != v);
+	}
+}
+
+double solve() {
+	double res = 0;
+	for(int i = 1 ; i <= n ; i ++)
+		for(int j = 1 ; j <= n ; j ++)
+			if(g[i][j]) d[i][j] = calc(i,j);
+			else d[i][j] = INF;
+	while(true) {
+		for(int i = 1 ; i <= n ; i ++) {
+			pre[i] = i;
+			for(int j = 1 ; j <= n ; j ++)
+				if(d[pre[i]][i] > d[j][i]) pre[i] = j;
+		}
+		
+		memset(dfn , 0 , sizeof dfn); top = cnt = dfnidx = 0;
+		for(int i = 1 ; i <= n ; i ++)
+			if(!dfn[i]) tarjan(i);
+		if(cnt == n) {
+			for(int i = 2 ; i <= n ; i ++) res += d[pre[i]][i];
+			break;
+		}
+		for(int i = 2 ; i <= n ; i ++)
+			if(id[pre[i]] == id[i]) res += d[pre[i]][i];
+		for(int i = 1 ; i <= cnt ; i ++)
+			for(int j = 1 ; j <= cnt ; j ++)
+				bd[i][j] = INF;
+		for(int i = 1 ; i <= n ; i ++) {
+			for(int j = 1 ; j <= n ; j ++) {
+				if(d[i][j] < INF && id[i] != id[j]) {
+					int a = id[i] , b = id[j];
+					if(id[pre[j]] == id[j]) bd[a][b] = min(bd[a][b] , d[i][j]-d[pre[j]][j]);
+					else bd[a][b] = min(bd[a][b] , d[i][j]);
+				}
+			}
+		}
+		n = cnt;
+		memcpy(d , bd , sizeof d);
+	}
+	
+	return res;
+}
+
+int main() {
+	while(~scanf("%d%d" , &n , &m)) {
+		for(int i = 1 ; i <= n ; i ++)
+			scanf("%lf%lf" , &q[i].x , &q[i].y);
+		memset(g , 0 , sizeof g);
+		while(m --) {
+			int a , b; scanf("%d%d" , &a , &b);
+			if(a != b && b != 1) g[a][b] = true;
+		}
+		
+		if(!check()) puts("poor snoopy");
+		else printf("%.2lf\n" , solve());
+	}
+	return 0;
+}
+```
 
 ## 其他
 ### 快读

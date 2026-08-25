@@ -95,6 +95,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                     prefix: 'spanning-tree',
                     items: [
                         'mst',
+                        'dmst',
                     ]
                 },
                 {
