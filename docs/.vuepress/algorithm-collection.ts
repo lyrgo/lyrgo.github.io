@@ -130,6 +130,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                         'bigraph-match',
                     ]
                 },
+                'prufer',
             ]
         },
         {
