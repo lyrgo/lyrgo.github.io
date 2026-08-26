@@ -251,6 +251,21 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                 'bit',
                 'recurrence',
                 'frac-programming',
+                {
+                    text: '离线算法',
+                    collapsed: true,
+                    prefix: 'offline',
+                    items: [
+                        {
+                            text: '莫队算法',
+                            collapsed: false,
+                            prefix: 'mo-algo',
+                            items: [
+                                'common',
+                            ]
+                        }
+                    ]
+                },
             ]
         }
     ],
