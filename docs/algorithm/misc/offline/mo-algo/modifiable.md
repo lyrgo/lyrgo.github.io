@@ -1,5 +1,5 @@
 ---
-title: 带修改莫队
+title: 带修莫队
 createTime: 2026/08/27 18:47:36
 permalink: /algorithm/misc/mo-algo/modifiable/
 ---
