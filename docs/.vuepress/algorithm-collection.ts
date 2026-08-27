@@ -262,6 +262,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                             prefix: 'mo-algo',
                             items: [
                                 'common',
+                                'modifiable',
                             ]
                         }
                     ]
