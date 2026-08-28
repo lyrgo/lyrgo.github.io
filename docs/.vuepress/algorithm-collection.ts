@@ -263,6 +263,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                             items: [
                                 'common',
                                 'modifiable',
+                                'rollback',
                             ]
                         }
                     ]
