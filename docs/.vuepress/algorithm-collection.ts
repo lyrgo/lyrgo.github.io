@@ -76,6 +76,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                     items: [
                         'lca',
                         'hld',
+                        'devide',
                     ]
                 },
                 'topo',
