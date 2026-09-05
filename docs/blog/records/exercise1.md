@@ -27,3 +27,4 @@ sticky: 5
 | [CF1637E Best Pair](/blog/solutions/codeforces/CF1637E.md) | 暴力均摊 | $\color{green}\bigstar$ |
 | [CF1418E Expected Damage](https://codeforces.com/problemset/problem/1418/E) | 排列组合好题 | $\color{green}\bigstar$ |
 | [371. 牧师约翰最忙碌的一天](https://www.acwing.com/problem/content/373/) | 2-SAT 例题 |
+| [P10455 Genius Acm](/blog/solutions/luogu/P10455.md) | 贪心好题 | $\color{red}\bigstar$ |
