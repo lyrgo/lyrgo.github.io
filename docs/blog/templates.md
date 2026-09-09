@@ -200,18 +200,67 @@ int main() {
 
 ## 其他
 ### 快读
-``` cpp
-char *p1,*p2,buf[100000];
-#define nc() (p1==p2 && (p2=(p1=buf)+fread(buf,1,100000,stdin),p1==p2)?EOF:*p1++)
-inline int read() {
-    int x = 0 , f = 1;
-    int ch = nc();
-    while(ch < 48 || ch > 57) {
-        if(ch == '-') f = -1;
-        ch = nc();
-    }
-    while(ch >= 48 && ch <= 57)
-        x = x * 10 + ch - 48 , ch = nc();
-    return x * f;
-}
+``` cpp:collapesd-lines
+#define LOCAL
+namespace IO {
+	#ifndef LOCAL
+		#define SIZE (1<<20)
+		char in[SIZE] , out[SIZE] , *p1=in , *p2=in , *p3=out;
+		#define getchar() (p1==p2 && (p2=(p1=in)+fread(in,1,SIZE,stdin)) , p1==p2 ? EOF : *p1 ++)
+		#define flush() (fwrite(out,1,p3-out,stdout) , p3=out)
+		#define putchar(c) (p3==out+SIZE && flush() , *p3 ++ = c)
+		class Flush{public: ~Flush(){flush();} } ___;
+	#endif
+
+	inline int read() {
+		int x = 0 , f = 1;
+		int c = getchar();
+		while(c < '0' || '9' < c) {
+			if(c == '-') f = -1;
+			c = getchar();
+		}
+		while('0' <= c && c <= '9') {
+			x = (x<<3) + (x<<1) + c - '0';
+			c = getchar();
+		}
+		return x*f;
+	}
+	
+	inline double dread() {
+		static char buf[64];
+		int c , top = 0;
+		do c = getchar(); while(c <= ' ');
+		while(c > ' ') buf[++ top] = c , c = getchar();
+		buf[top] = '\0';
+		return strtod(buf , nullptr);
+	}
+
+	inline void write(int x , bool f = true) {
+		if(x < 0) x = -x , putchar('-');
+		static short stk[30] , top; top = 0;
+		do {stk[++ top] = x%10 , x/=10; } while(x);
+		while(top) putchar(stk[top --] | '0');
+		if(f) putchar('\n');
+		else putchar(' ');
+	}
+	
+	inline void write(const char *s , bool f = true) {
+		while(*s) putchar(*s ++);
+		if(f) putchar('\n');
+		else putchar(' ');
+	}
+	
+	inline void write(double x , int p , bool f = true) {
+		static char buf[64];
+		snprintf(buf , 64 , "%.*f" , p , x);
+		write(buf , f);
+	}
+
+	#ifndef LOCAL
+		#undef getchar
+		#undef flush
+		#undef putchar
+		#undef SIZE
+	#endif
+} using namespace IO;
 ```
