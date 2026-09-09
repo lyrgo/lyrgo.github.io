@@ -19,6 +19,10 @@ sticky: 10
 ## 线段树
 *   如果需要用线段树分治+可撤销并查集，可以合并 $x\rightarrow y$ 时 $w[x]\leftarrow w[x]-w[y]$，撤销时 $w[x]\leftarrow w[x]+w[y]$。  
     [CF1814F Communication Towers](https://codeforces.com/problemset/problem/1814/F)  
+*   对于给定一些区间，求合法区间个数等的问题可以：
+    1.  把询问离线，按照右端点排序。  
+    2.  枚举右端点，用数据结构维护左端点。  
+    [P4747 [CERC2017] Intrinsic Interval](https://www.luogu.com.cn/problem/P4747)  
 
 ### 树形 DP
 *   树形 DP 中如果子树不好考虑可以考虑全局贡献。  
