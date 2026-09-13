@@ -1,7 +1,7 @@
 ---
 title: Z 函数
 createTime: 2026/08/05 15:55:07
-permalink: /algorithm/hwfys93z/
+permalink: /algorithm/z-func/
 ---
 
 **下文约定下标从 $1$ 开始**。  
