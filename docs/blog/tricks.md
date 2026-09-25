@@ -16,6 +16,14 @@ sticky: 10
 *   遇到状态无法放入 DP 的转移，可以考虑贡献延后计算。  
     [P14364 [CSP-S 2025] 员工招聘](/blog/solutions/luogu/P14364.md){.readmore}  
 
+## 线段树
+*   如果需要用线段树分治+可撤销并查集，可以合并 $x\rightarrow y$ 时 $w[x]\leftarrow w[x]-w[y]$，撤销时 $w[x]\leftarrow w[x]+w[y]$。  
+    [CF1814F Communication Towers](https://codeforces.com/problemset/problem/1814/F)  
+*   对于给定一些区间，求合法区间个数等的问题可以：
+    1.  把询问离线，按照右端点排序。  
+    2.  枚举右端点，用数据结构维护左端点。  
+    [P4747 [CERC2017] Intrinsic Interval](/blog/solutions/luogu/P4747.md){.readmore}  
+
 ### 树形 DP
 *   树形 DP 中如果子树不好考虑可以考虑全局贡献。  
 *   如果子树内状态不好转移，可以考虑转换为 DFS 序上的转移。  

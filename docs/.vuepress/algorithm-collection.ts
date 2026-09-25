@@ -76,6 +76,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                     items: [
                         'lca',
                         'hld',
+                        'devide',
                     ]
                 },
                 'topo',
@@ -95,6 +96,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                     prefix: 'spanning-tree',
                     items: [
                         'mst',
+                        'dmst',
                     ]
                 },
                 {
@@ -109,6 +111,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                 'bipartite',
                 'euler',
                 'min-cycle',
+                '2-sat',
                 {
                     text: '网络流',
                     collapsed: true,
@@ -128,6 +131,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                         'bigraph-match',
                     ]
                 },
+                'prufer',
             ]
         },
         {
@@ -248,6 +252,23 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                 'bit',
                 'recurrence',
                 'frac-programming',
+                {
+                    text: '离线算法',
+                    collapsed: true,
+                    prefix: 'offline',
+                    items: [
+                        {
+                            text: '莫队算法',
+                            collapsed: false,
+                            prefix: 'mo-algo',
+                            items: [
+                                'common',
+                                'modifiable',
+                                'rollback',
+                            ]
+                        }
+                    ]
+                },
             ]
         }
     ],

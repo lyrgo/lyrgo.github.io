@@ -73,21 +73,194 @@ void build() {
 	}
 }
 ```
+## 图论
+### 朱刘算法
+```cpp:collapesd-lines
+#include <iostream>
+#include <algorithm>
+#include <cstdio>
+#include <cstring>
+#include <cmath>
+
+using namespace std;
+
+const int N = 110;
+const double INF = 1e8;
+
+struct PDD {
+	double x , y;
+};
+
+int n , m;
+PDD q[N];
+bool g[N][N];
+double d[N][N] , bd[N][N];
+int pre[N] , bpre[N];
+int dfn[N] , low[N] , dfnidx , stk[N] , top;
+int id[N] , cnt;
+bool st[N] , instk[N];
+
+void dfs(int u) {
+	st[u] = true;
+	for(int i = 1 ; i <= n ; i ++)
+		if(g[u][i] && !st[i]) dfs(i);
+}
+
+bool check() {
+	memset(st , 0 , sizeof st);
+	dfs(1);
+	for(int i = 1 ; i <= n ; i ++)
+		if(!st[i]) return false;
+	return true;
+}
+
+double calc(int i , int j) {
+	double dx = q[i].x - q[j].x;
+	double dy = q[i].y - q[j].y;
+	return sqrt(dx*dx + dy*dy);
+}
+
+void tarjan(int u) {
+	dfn[u] = low[u] = ++ dfnidx;
+	stk[++ top] = u; instk[u] = true;
+	
+	int v = pre[u];
+	if(!dfn[v]) {
+		tarjan(v);
+		low[u] = min(low[u] , low[v]);
+	} else if(instk[v]) low[u] = min(low[u] , dfn[v]);
+	
+	if(low[u] == dfn[u]) {
+		cnt ++;
+		do {
+			v = stk[top --];
+			instk[v] = false;
+			id[v] = cnt;
+		} while(u != v);
+	}
+}
+
+double solve() {
+	double res = 0;
+	for(int i = 1 ; i <= n ; i ++)
+		for(int j = 1 ; j <= n ; j ++)
+			if(g[i][j]) d[i][j] = calc(i,j);
+			else d[i][j] = INF;
+	while(true) {
+		for(int i = 1 ; i <= n ; i ++) {
+			pre[i] = i;
+			for(int j = 1 ; j <= n ; j ++)
+				if(d[pre[i]][i] > d[j][i]) pre[i] = j;
+		}
+		
+		memset(dfn , 0 , sizeof dfn); top = cnt = dfnidx = 0;
+		for(int i = 1 ; i <= n ; i ++)
+			if(!dfn[i]) tarjan(i);
+		if(cnt == n) {
+			for(int i = 2 ; i <= n ; i ++) res += d[pre[i]][i];
+			break;
+		}
+		for(int i = 2 ; i <= n ; i ++)
+			if(id[pre[i]] == id[i]) res += d[pre[i]][i];
+		for(int i = 1 ; i <= cnt ; i ++)
+			for(int j = 1 ; j <= cnt ; j ++)
+				bd[i][j] = INF;
+		for(int i = 1 ; i <= n ; i ++) {
+			for(int j = 1 ; j <= n ; j ++) {
+				if(d[i][j] < INF && id[i] != id[j]) {
+					int a = id[i] , b = id[j];
+					if(id[pre[j]] == id[j]) bd[a][b] = min(bd[a][b] , d[i][j]-d[pre[j]][j]);
+					else bd[a][b] = min(bd[a][b] , d[i][j]);
+				}
+			}
+		}
+		n = cnt;
+		memcpy(d , bd , sizeof d);
+	}
+	
+	return res;
+}
+
+int main() {
+	while(~scanf("%d%d" , &n , &m)) {
+		for(int i = 1 ; i <= n ; i ++)
+			scanf("%lf%lf" , &q[i].x , &q[i].y);
+		memset(g , 0 , sizeof g);
+		while(m --) {
+			int a , b; scanf("%d%d" , &a , &b);
+			if(a != b && b != 1) g[a][b] = true;
+		}
+		
+		if(!check()) puts("poor snoopy");
+		else printf("%.2lf\n" , solve());
+	}
+	return 0;
+}
+```
 
 ## 其他
 ### 快读
-``` cpp
-char *p1,*p2,buf[100000];
-#define nc() (p1==p2 && (p2=(p1=buf)+fread(buf,1,100000,stdin),p1==p2)?EOF:*p1++)
-inline int read() {
-    int x = 0 , f = 1;
-    int ch = nc();
-    while(ch < 48 || ch > 57) {
-        if(ch == '-') f = -1;
-        ch = nc();
-    }
-    while(ch >= 48 && ch <= 57)
-        x = x * 10 + ch - 48 , ch = nc();
-    return x * f;
-}
+``` cpp:collapesd-lines
+#define LOCAL
+namespace IO {
+	#ifndef LOCAL
+		#define SIZE (1<<20)
+		char in[SIZE] , out[SIZE] , *p1=in , *p2=in , *p3=out;
+		#define getchar() (p1==p2 && (p2=(p1=in)+fread(in,1,SIZE,stdin)) , p1==p2 ? EOF : *p1 ++)
+		#define flush() (fwrite(out,1,p3-out,stdout) , p3=out)
+		#define putchar(c) (p3==out+SIZE && flush() , *p3 ++ = c)
+		class Flush{public: ~Flush(){flush();} } ___;
+	#endif
+
+	inline int read() {
+		int x = 0 , f = 1;
+		int c = getchar();
+		while(c < '0' || '9' < c) {
+			if(c == '-') f = -1;
+			c = getchar();
+		}
+		while('0' <= c && c <= '9') {
+			x = (x<<3) + (x<<1) + c - '0';
+			c = getchar();
+		}
+		return x*f;
+	}
+	
+	inline double dread() {
+		static char buf[64];
+		int c , top = 0;
+		do c = getchar(); while(c <= ' ');
+		while(c > ' ') buf[++ top] = c , c = getchar();
+		buf[top] = '\0';
+		return strtod(buf , nullptr);
+	}
+
+	inline void write(int x , bool f = true) {
+		if(x < 0) x = -x , putchar('-');
+		static short stk[30] , top; top = 0;
+		do {stk[++ top] = x%10 , x/=10; } while(x);
+		while(top) putchar(stk[top --] | '0');
+		if(f) putchar('\n');
+		else putchar(' ');
+	}
+	
+	inline void write(const char *s , bool f = true) {
+		while(*s) putchar(*s ++);
+		if(f) putchar('\n');
+		else putchar(' ');
+	}
+	
+	inline void write(double x , int p , bool f = true) {
+		static char buf[64];
+		snprintf(buf , 64 , "%.*f" , p , x);
+		write(buf , f);
+	}
+
+	#ifndef LOCAL
+		#undef getchar
+		#undef flush
+		#undef putchar
+		#undef SIZE
+	#endif
+} using namespace IO;
 ```
