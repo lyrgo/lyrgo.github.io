@@ -77,6 +77,7 @@ export const algorithm: ThemeCollectionItem = defineCollection({
                         'lca',
                         'hld',
                         'devide',
+                        'virtual-tree',
                     ]
                 },
                 'topo',
